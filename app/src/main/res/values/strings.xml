@@ -13,4 +13,7 @@
     <string name="menu_perks">Perks</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_chatter">Chatter</string>
+    <string name="submission_time">Submission Time</string>
+    <string name="submission_stage">Submission Stage</string>
+    <string name="value_points">Value Points</string>
 </resources>
