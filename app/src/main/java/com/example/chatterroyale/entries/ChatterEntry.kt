@@ -5,8 +5,8 @@ import java.util.*
 class ChatterEntry {
 
     //VARIABLE PROPERTIES
-    var valuePoints: Int = 0                        //VPs - Value points are used to determine when an entry is eliminated during the reduction phase
-    var effectiveValuePoints: Int = 0               //EVPs - These are used to determine the cumulative votes an entry has received
+    var vp: Int = 0                                 //VPs - Value points are used to determine when an entry is eliminated during the reduction phase
+    var evp: Int = 0                                //EVPs - Effective value points are used to determine the cumulative votes an entry has received
     var alive: Boolean = true                       //Flag determines if an entry is still alive in the current round
     var upvotes: Int = 0
     var downvotes: Int = 0
@@ -15,31 +15,18 @@ class ChatterEntry {
     var timeAlive: Long = 0
 
     //IMMUTABLE PROPERTIES DEFINED AT CREATION
-    val submissionTime: Date? = null
-    val submittingUser: String? = ""
-    val roundID: String? = ""
-    val stageID: Int = 1
+    val sTime: Date? = null                         //Submission time
+    val user: String? = ""                          //The user who submitted the entry
+    val roundID: String? = ""                       //The unique round ID the entry was submitted to
+    val stage: Int = 1                              //The stage the entry was submitted
 
     //IMMUTABLE PROPERTIES DEFINED AT ELIMINATION
-    var eliminationTime: Date? = null
+    var eTime: Date? = null                         //Elimination time
     var entryRank: Int? = 0
-
-   /* constructor(currentTime: Date, user: String, currentRound: String, currentStage: Int,post: String){
-        //IMMUTABLE PROPERTIES DEFINED AT CREATION
-        submissionTime = currentTime
-        submittingUser = user
-        roundID = currentRound
-        stageID= currentStage
-        entryPost = post
-    }*/
 
     init{
        postChars = entryPost.length
     }
 
-    //METHODS
-    //Set the elimination time when the entry is eliminated by DE or reduction
-    fun eliminate(currentTime: Date){
-        eliminationTime = currentTime
-    }
+    //METHODS - GETTERS AND SETTERS ARE OPTIONAL
 }

@@ -11,7 +11,7 @@ import com.example.chatterroyale.entries.ChatterEntry
 
 import com.google.android.material.snackbar.Snackbar
 
-class RecyclerAdapter(val winningEntries:List<ChatterEntry>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class winnerRecyclerViewAdapter(val winningEntries:List<ChatterEntry>) : RecyclerView.Adapter<winnerRecyclerViewAdapter.ViewHolder>() {
 
     //PROPERTIES************************************************************************************
 
@@ -43,9 +43,9 @@ class RecyclerAdapter(val winningEntries:List<ChatterEntry>) : RecyclerView.Adap
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
 
         val entry = winningEntries.get(i)
-        viewHolder?.submissionTime?.text = entry.submissionTime.toString()
-        viewHolder?.submissionStage?.text = entry.stageID.toString()
-        viewHolder?.valuePoints?.text = entry.valuePoints.toString()
+        viewHolder?.submissionTime?.text = entry.sTime.toString()
+        viewHolder?.submissionStage?.text = entry.stage.toString()
+        viewHolder?.valuePoints?.text = entry.vp.toString()
     }
 
     override fun getItemCount(): Int {

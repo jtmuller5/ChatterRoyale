@@ -13,17 +13,7 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
-import com.example.chatterroyale.adapters.RecyclerAdapter
-import com.example.chatterroyale.entries.ChatterEntry
-import com.google.common.reflect.TypeToken
 import com.google.firebase.FirebaseApp
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.gson.Gson
-import com.squareup.okhttp.OkHttpClient
-import com.squareup.okhttp.Request
-import com.squareup.okhttp.Response
-import kotlinx.android.synthetic.main.fragment_home.*
-import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
