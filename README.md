@@ -12,11 +12,11 @@ Each round is a 24 hour period wherein users can submit anonymous posts to a sha
 
 
 
-*   **Round ID **- The first round ever will be recorded as round 1 and each sequential round will increment this value by 1. This value will serve as a unique identifier for the round that will be referenced by the associated stages so everything stays connected.
+*   **Round ID** - The first round ever will be recorded as round 1 and each sequential round will increment this value by 1. This value will serve as a unique identifier for the round that will be referenced by the associated stages so everything stays connected.
 *   **Round date** - The calendar date that the round is occurring on
 *   **Current stage** - This holds the number of the current stage
 *   **Winning entry** - Once the round has ended, the winning entry will be saved here
-*   **Total entries **- Once the round has ended, the total number of entries that were live will be recorded
+*   **Total entries** - Once the round has ended, the total number of entries that were live will be recorded
 
 
 # Stage
@@ -34,13 +34,13 @@ Each stage of a round will determine what user interaction is allowed for a spec
 *   **Stage number** - The stage number (between 1 and 12)
 *   **Round ID** - The round ID that this stage belongs to
 *   **Start time** - The clock time that determines when the stage starts
-*   **End time **- The clock time that determines when the stage ends
+*   **End time** - The clock time that determines when the stage ends
 *   **Maximum surviving entries** - The maximum number of surviving entries that are allowed by the end of the stage. This value is dynamically generated based on the number of surviving entries from the previous round and the number of remaining stages. In order to get to this value before the stage time has expired, the stage will be divided into 12 ten minute spans with their own dynamically generated maximum surviving entry values.
-*   **Remaining stages **- The number of stages left before the round is over (12 - Current stage number)
+*   **Remaining stages** - The number of stages left before the round is over (12 - Current stage number)
 *   **Entries eliminated** - The total number of entries eliminated during between the start and end of this stage
 *   **New entry added VPs** - New entries submitted during this stage will start with this number of additional value points. The idea here is that entries submitted earlier in the round will be seen by more users and will have had the chance to be upvoted/downvoted more. This value will be generated dynamically based on the status of existing entries and will be displayed publicly on the feed.
 *   **Starting entries** - The number of entries the stage starts with
-*   **Active users **- A list of users with an active post during the stage
+*   **Active users** - A list of users with an active post during the stage
 *   **Purchase Stage** - Indicates if users can make purchases during this stage
 
 
@@ -78,10 +78,10 @@ An entry consists of a single user’ submission to a round. Each user may only 
 *   **Elimination time** - The clock time the entry was eliminated, either by DE or stage elimination (SE)
 *   **Rank/Total** - The final placement of the entry over the total number of entries for the round
 *   **User ID** - The ID of the user who submitted the entry
-*   **Post **- The text that is included in the entry
-*   **Characters **- The number of characters included in the entry
-*   **Upvotes **- The number of upvotes this entry has received
-*   **Downvotes **- The number of downvotes this entry has received
+*   **Post** - The text that is included in the entry
+*   **Characters** - The number of characters included in the entry
+*   **Upvotes** - The number of upvotes this entry has received
+*   **Downvotes** - The number of downvotes this entry has received
 *   **Upvoting users** - A list of user IDs that upvoted this entry
 *   **Downvoting users** - A list of user IDs that downvoted this entry (used to determine EXP given for “Deserved Eliminations”)
 *   **Value points (VP)** - Each entry will start with 0 VPs and this will hold the current number of VPs. Upvotes will add to the number of VPs while downvotes will subtract. VPs will be used to determine when users are eliminated at the end of each round.
@@ -89,7 +89,7 @@ An entry consists of a single user’ submission to a round. Each user may only 
 *   **Stage 1-12 VP changes** - The total number of VPs added or removed for each stage. This field will store the current VP change for the current stage
 *   **Stage 1-12 VP start** - The number of VP the entry started each stage with
 *   **Stage 1-12 VP end** - The number of VP the entry ended each stage with
-*   **Tags **- This will contain a list of tags that other users have added to the entry. Different tags will have different effects on the receiving post
+*   **Tags** - This will contain a list of tags that other users have added to the entry. Different tags will have different effects on the receiving post
 
 
 # User 
@@ -105,19 +105,19 @@ Each user of the app will have a unique profile that stores their performance da
 
 
 *   **User ID** - A unique number ID used to identify the use. The first user to create a profile will be assigned the unique ID of 1, and every sequential user will increment this value.
-*   **Username **- The username entered by the user that is visible on their profile. If the user chooses, other users can access their profile and view their historical entries
+*   **Username** - The username entered by the user that is visible on their profile. If the user chooses, other users can access their profile and view their historical entries
 *   **Creation date** - The calendar date when this user was created
 *   **Creaton time** - The clock time when this user was created
 *   **Total rounds entered** - A count of the number of rounds the user has submitted an entry to. There is only one round per 24-hour period
 *   **Total entries submitted** - A count of the number of entries the user has submitted
-*   **Past Entries **- A list of all past entries submitted by the user
+*   **Past Entries** - A list of all past entries submitted by the user
 *   **Total round wins** - The number of rounds the user has won
-*   **Experience points (EXP) **- This is a running count of the number of experience points the user has accumulated. EXP are gained by upvoting entries, downvoting entries, eliminating entries, tagging entries, and otherwise interacting with the round’s feed. EXP are also awarded based on entry performance
+*   **Experience points (EXP)** - This is a running count of the number of experience points the user has accumulated. EXP are gained by upvoting entries, downvoting entries, eliminating entries, tagging entries, and otherwise interacting with the round’s feed. EXP are also awarded based on entry performance
 *   Level - The experience level of the user as determined by the 
 *   **Total entries eliminated** - The total number of posts the user has eliminated
 *   **Tag totals** - For each tag in existence, the user record will contain a running tally of how many they have received
-*   **Spendable EXP (Pocket) **- The current number of EXP the user can spend. EXP for a stage is separated into spendable and spent EXP. Even if EXP is spent, it is still added to the user’s total EXP count. EXP that is not spent at the end of each round is added to the Spendable EXP (Stash) total. The stash EXP can be spent in the perk store on perks that affect a player’s performance.
-*   **Spendable EXP (Stash) **- EXP not spent during a round, either because the stage expired or because there were no affordable tags that the user wanted, is added to the Spendable EXP Stash. This EXP can be spent on big ticket perks in the perk store. The idea here is to give users who cannot interact with the feed as much the ability to benefit in the long run.
+*   **Spendable EXP (Pocket)** - The current number of EXP the user can spend. EXP for a stage is separated into spendable and spent EXP. Even if EXP is spent, it is still added to the user’s total EXP count. EXP that is not spent at the end of each round is added to the Spendable EXP (Stash) total. The stash EXP can be spent in the perk store on perks that affect a player’s performance.
+*   **Spendable EXP (Stash)** - EXP not spent during a round, either because the stage expired or because there were no affordable tags that the user wanted, is added to the Spendable EXP Stash. This EXP can be spent on big ticket perks in the perk store. The idea here is to give users who cannot interact with the feed as much the ability to benefit in the long run.
 
 
 ## Actions
@@ -126,13 +126,13 @@ During a round, each user can take a number of actions.
 
 
 
-*   **Upvote **- A user can upvote each entry in the feed one time. Upvoting an entry adds 1 VP to the entry, awards the entry’s user 1 EXP, and awards the upvoting user 3 EXP. During each stage, each user will be allowed a limited amount of upvotes based on the number of entries the stage begins with (starting entries * 75%). Upvotes cannot be undone.
-*   **Downvote **- A user can downvote each entry in the feed one time. Downvoting an entry subtracts 1 VP from the entry, subtracts 1 EXP from the entry’s user, and awards the downvoting user 1 EXP. If the entry is eventually eliminated via a “Deserved Elimination”, all downvoting users will receive an additional 4 EXP. If a user delivers the final downvote on an entry, the downvoting user will receive 5 EXP and the entry user will lose 3 EXP. During each stage, each user will be allowed a limited amount of downvotes based on the number of entries the stage begins with (starting entries * 25%). Downvotes cannot be undone.
-*   **Tag **- Each user will have a finite number of tags per round that can be awarded to posts. Each tag will define its own effects (such as EXP gained, VPs added, special effects)
-*   **Edit **- Users may edit their own entry if they use an “Edit” tag
-*   **Abandon **- A user can abandon their current entry in order to submit another entry. Note that only one entry can be submitted per stage. A user may abandon their entry if they think another entry may perform better or to strategically benefit from the stage’s VP bonus.
-*   **Heal **- A user can trade EXP gained from the current stage for VPs. The starting rate is 10 EXP for 1 VP
-*   **Purchase **- A user can use the spendable EXP they have gained during the current stage to purchase tags in the tag store. EXP that is spent in the tag store is still added to the user’s total EXP count.
+*   **Upvote** - A user can upvote each entry in the feed one time. Upvoting an entry adds 1 VP to the entry, awards the entry’s user 1 EXP, and awards the upvoting user 3 EXP. During each stage, each user will be allowed a limited amount of upvotes based on the number of entries the stage begins with (starting entries * 75%). Upvotes cannot be undone.
+*   **Downvote** - A user can downvote each entry in the feed one time. Downvoting an entry subtracts 1 VP from the entry, subtracts 1 EXP from the entry’s user, and awards the downvoting user 1 EXP. If the entry is eventually eliminated via a “Deserved Elimination”, all downvoting users will receive an additional 4 EXP. If a user delivers the final downvote on an entry, the downvoting user will receive 5 EXP and the entry user will lose 3 EXP. During each stage, each user will be allowed a limited amount of downvotes based on the number of entries the stage begins with (starting entries * 25%). Downvotes cannot be undone.
+*   **Tag** - Each user will have a finite number of tags per round that can be awarded to posts. Each tag will define its own effects (such as EXP gained, VPs added, special effects)
+*   **Edit** - Users may edit their own entry if they use an “Edit” tag
+*   **Abandon** - A user can abandon their current entry in order to submit another entry. Note that only one entry can be submitted per stage. A user may abandon their entry if they think another entry may perform better or to strategically benefit from the stage’s VP bonus.
+*   **Heal** - A user can trade EXP gained from the current stage for VPs. The starting rate is 10 EXP for 1 VP
+*   **Purchase** - A user can use the spendable EXP they have gained during the current stage to purchase tags in the tag store. EXP that is spent in the tag store is still added to the user’s total EXP count.
 
 
 # Experience Points
@@ -152,7 +152,7 @@ Actions defined here are basic actions a user may take to interact with the roun
 *   **Upvoting**: 3 EXP
 *   **Being upvoted**: 1 EXP
 *   **Downvoting**: 1 EXP
-*   **Downvoting a post that is eventually removed via a “Deserved Elimination” **- 4 EXP (on top of the original 1 EXP for downvoting) 
+*   **Downvoting a post that is eventually removed via a “Deserved Elimination”** - 4 EXP (on top of the original 1 EXP for downvoting) 
 *   **Eliminating a post**: 5 EXP
 *   **Being downvoted**: -1EXP
 *   **Being eliminated via a “Deserved Elimination”**: -3EXP
@@ -188,11 +188,11 @@ Tags are used to indicate that an entry has a specific characteristic or makes a
 *   **Tag Color** - The color of the tag visible in the feed
 *   **Tag Name** - A descriptive name that describes what the tag is indicating in the receiving post
 *   **Tag Description** - A longer text entry explaining what this tag is used for and what its effects are
-*   **Tag Type **- Determines if the tag defines a characteristic of a post or performs an action on the post (Characterisic vs Action)
-*   **Sticky? **- Determines if the tag can be moved from one entry to another or if it sticks to the first entry
+*   **Tag Type** - Determines if the tag defines a characteristic of a post or performs an action on the post (Characterisic vs Action)
+*   **Sticky?** - Determines if the tag can be moved from one entry to another or if it sticks to the first entry
 *   **Self Care?** - Determines if the tag can be added to the user’s own post
-*   **Lifetime **- Determines how long the tag remains after it is put into play. Typically this field would contain a count of the number of stages or a literal time value
-*   **Price **- The number of EXP required to purchase this tag during a round
+*   **Lifetime** - Determines how long the tag remains after it is put into play. Typically this field would contain a count of the number of stages or a literal time value
+*   **Price** - The number of EXP required to purchase this tag during a round
 
 
 # FAQ
