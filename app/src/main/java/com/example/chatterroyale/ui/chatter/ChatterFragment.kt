@@ -1,4 +1,4 @@
-package com.example.chatterroyale.ui.send
+package com.example.chatterroyale.ui.chatter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.chatterroyale.R
 
-class SendFragment : Fragment() {
+class ChatterFragment : Fragment() {
 
-    private lateinit var sendViewModel: SendViewModel
+    private lateinit var shareViewModel: ChatterViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        sendViewModel =
-            ViewModelProviders.of(this).get(SendViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_send, container, false)
-        val textView: TextView = root.findViewById(R.id.text_send)
-        sendViewModel.text.observe(this, Observer {
+        shareViewModel =
+            ViewModelProviders.of(this).get(ChatterViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_chatter, container, false)
+        val textView: TextView = root.findViewById(R.id.text_chatter)
+        shareViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root
