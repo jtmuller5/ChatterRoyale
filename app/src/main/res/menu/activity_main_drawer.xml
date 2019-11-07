@@ -11,19 +11,19 @@
         <item
             android:id="@+id/nav_chatter"
             android:icon="@drawable/nav_chatter"
-            android:title="@+id/nav_chatter"/>
+            android:title="@string/menu_chatter"/>
         <item
             android:id="@+id/nav_perks"
             android:icon="@drawable/nav_perks"
-            android:title="@+id/nav_perks" />
+            android:title="@string/menu_perks" />
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/nav_profile"
-            android:title="@+id/nav_profile" />
+            android:title="@string/menu_profile" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/nav_settings"
-            android:title="@+id/nav_settings" />
+            android:title="@string/menu_settings" />
     </group>
 
     <!--Add new section in nav drawer-->
