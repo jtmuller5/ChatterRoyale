@@ -1,5 +1,6 @@
 package com.example.chatterroyale.entries
 
+import java.sql.Timestamp
 import java.util.*
 
 class ChatterEntry {

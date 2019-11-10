@@ -13,7 +13,11 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import androidx.fragment.app.Fragment
+import com.example.chatterroyale.adapters.WinnerRecyclerViewAdapter
+import com.example.chatterroyale.ui.home.HomeFragment
 import com.google.firebase.FirebaseApp
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
 

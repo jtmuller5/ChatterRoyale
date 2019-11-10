@@ -12,18 +12,18 @@ import com.example.chatterroyale.R
 
 class PerksFragment : Fragment() {
 
-    private lateinit var galleryViewModel: PerksViewModel
+    private lateinit var perksViewModel: PerksViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
+        perksViewModel =
             ViewModelProviders.of(this).get(PerksViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_perks, container, false)
         val textView: TextView = root.findViewById(R.id.text_perks)
-        galleryViewModel.text.observe(this, Observer {
+        perksViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

@@ -12,18 +12,18 @@ import com.example.chatterroyale.R
 
 class ChatterFragment : Fragment() {
 
-    private lateinit var shareViewModel: ChatterViewModel
+    private lateinit var chatterViewModel: ChatterViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        shareViewModel =
+        chatterViewModel =
             ViewModelProviders.of(this).get(ChatterViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_chatter, container, false)
         val textView: TextView = root.findViewById(R.id.text_chatter)
-        shareViewModel.text.observe(this, Observer {
+        chatterViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

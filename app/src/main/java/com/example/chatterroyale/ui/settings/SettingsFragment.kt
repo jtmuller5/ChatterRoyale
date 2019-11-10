@@ -12,18 +12,18 @@ import com.example.chatterroyale.R
 
 class SettingsFragment : Fragment() {
 
-    private lateinit var slideshowViewModel: SettingsViewModel
+    private lateinit var settingsViewModel: SettingsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        slideshowViewModel =
+        settingsViewModel =
             ViewModelProviders.of(this).get(SettingsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_settings, container, false)
         val textView: TextView = root.findViewById(R.id.text_settings)
-        slideshowViewModel.text.observe(this, Observer {
+        settingsViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

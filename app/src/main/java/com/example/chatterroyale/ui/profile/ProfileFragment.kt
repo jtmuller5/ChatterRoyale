@@ -12,18 +12,18 @@ import com.example.chatterroyale.R
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var sendViewModel: ProfileViewModel
+    private lateinit var profileViewModel: ProfileViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        sendViewModel =
+        profileViewModel =
             ViewModelProviders.of(this).get(ProfileViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
         val textView: TextView = root.findViewById(R.id.text_profile)
-        sendViewModel.text.observe(this, Observer {
+        profileViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root
