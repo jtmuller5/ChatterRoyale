@@ -5,21 +5,16 @@ import android.widget.TextView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.R
-import com.example.chatterroyale.listItems.SettingOption
+import com.example.chatterroyale.listItems.SettingColor
 
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.color_selection.view.*
 
 
-class SettingsRVAdapter(val settingOptions:List<SettingOption>,var parent:Fragment) : RecyclerView.Adapter<SettingsRVAdapter.ViewHolder>() {
+class ColorsRVAdapter(val settingColors:List<SettingColor>) : RecyclerView.Adapter<ColorsRVAdapter.ViewHolder>() {
 
     //PROPERTIES************************************************************************************
 
@@ -27,17 +22,15 @@ class SettingsRVAdapter(val settingOptions:List<SettingOption>,var parent:Fragme
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var settingName: TextView = itemView.findViewById(R.id.colorName)
-        var settingIcon: ImageView = itemView.findViewById(R.id.colorVal)
+        var colorName : TextView = itemView.findViewById(R.id.colorName)
+        //var colorVal : ImageView = itemView.findViewById(R.id.colorVal)
 
         init {
             itemView.setOnClickListener { v: View  ->
-                var position: Int = getAdapterPosition()
+                var color: String = v.colorName.text.toString()
 
-                Snackbar.make(v, "Click detected on item $position",
+                Snackbar.make(v, "$color selected",
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()
-                var controller : NavController? = parent.activity?.findNavController(R.id.nav_host_fragment)
-                controller?.navigate(R.id.action_nav_settings_to_colorFragment)
             }
         }
     }
@@ -48,13 +41,13 @@ class SettingsRVAdapter(val settingOptions:List<SettingOption>,var parent:Fragme
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val option = settingOptions?.get(position)
-        holder?.settingName?.text = option.optionName
-        holder?.settingIcon?.setImageDrawable(option.optionIcon)
+        val option = settingColors?.get(position)
+        holder?.colorName?.text = option.colorName
+        //holder?.colorVal?.setBackgroundColor(option.colorVal)
     }
 
     override fun getItemCount(): Int {
-        return settingOptions.size
+        return settingColors.size
     }
 
 }

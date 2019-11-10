@@ -13,9 +13,8 @@
 
     <fragment
         android:id="@+id/nav_chatter"
-        android:name="com.example.chatterroyale.ui.settings.SettingsFragment"
-        android:label="@string/menu_chatter"
-        tools:layout="@layout/fragment_perks" />
+        android:name="com.example.chatterroyale.ui.chatter.ChatterFragment"
+        android:label="@string/menu_chatter" />
 
     <fragment
         android:id="@+id/nav_perks"
@@ -25,11 +24,18 @@
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="com.example.chatterroyale.ui.profile.ProfileFragment"
-        android:label="@string/menu_settings"
-        tools:layout="@layout/fragment_settings" />
+        android:name="com.example.chatterroyale.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings">
+        <action
+            android:id="@+id/action_nav_settings_to_colorFragment"
+            app:destination="@id/colorFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.chatterroyale.ui.home.HomeFragment"
         android:label="@string/menu_home" />
+    <fragment
+        android:id="@+id/colorFragment"
+        android:name="com.example.chatterroyale.ui.settings.ColorFragment"
+        android:label="ColorFragment" />
 </navigation>

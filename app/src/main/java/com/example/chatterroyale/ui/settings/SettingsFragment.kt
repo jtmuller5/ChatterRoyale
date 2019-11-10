@@ -6,9 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.R
 import com.example.chatterroyale.adapters.SettingsRVAdapter
 import com.example.chatterroyale.listItems.SettingOption
@@ -38,8 +44,9 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var parentFrag = this
         settingsRecyclerView.layoutManager = LinearLayoutManager(activity)
         settingsRecyclerView.setHasFixedSize(true)
-        settingsRecyclerView.adapter = SettingsRVAdapter(settings)
+        settingsRecyclerView.adapter = SettingsRVAdapter(settings,parentFrag)
     }
 }
