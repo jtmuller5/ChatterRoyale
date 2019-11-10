@@ -6,16 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chatterroyale.R
-import com.example.chatterroyale.entries.ChatterEntry
+import com.example.chatterroyale.listItems.ChatterEntry
 
 import com.google.android.material.snackbar.Snackbar
-import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class WinnerRecyclerViewAdapter(val winningEntries:List<ChatterEntry>) : RecyclerView.Adapter<WinnerRecyclerViewAdapter.ViewHolder>() {
+class WinnerRVAdapter(val winningEntries:List<ChatterEntry>) : RecyclerView.Adapter<WinnerRVAdapter.ViewHolder>() {
 
     //PROPERTIES************************************************************************************
 
@@ -28,7 +26,6 @@ class WinnerRecyclerViewAdapter(val winningEntries:List<ChatterEntry>) : Recycle
         var valuePoints: TextView = itemView.findViewById(com.example.chatterroyale.R.id.winningValuePointsValue)
 
         init {
-
             itemView.setOnClickListener { v: View  ->
                 var position: Int = getAdapterPosition()
 
@@ -39,8 +36,7 @@ class WinnerRecyclerViewAdapter(val winningEntries:List<ChatterEntry>) : Recycle
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val v = LayoutInflater.from(viewGroup.context)
-            .inflate(com.example.chatterroyale.R.layout.winning_entry_card, viewGroup, false)
+        val v = LayoutInflater.from(viewGroup.context).inflate(com.example.chatterroyale.R.layout.winning_entry_card, viewGroup, false)
         return ViewHolder(v)
     }
 

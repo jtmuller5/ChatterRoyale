@@ -1,6 +1,5 @@
-package com.example.chatterroyale.entries
+package com.example.chatterroyale.listItems
 
-import java.sql.Timestamp
 import java.util.*
 
 class ChatterEntry {

@@ -1,7 +1,6 @@
 package com.example.chatterroyale.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatterroyale.R
-import com.example.chatterroyale.adapters.WinnerRecyclerViewAdapter
-import com.example.chatterroyale.entries.ChatterEntry
-import com.google.firebase.firestore.FirebaseFirestore
+import com.example.chatterroyale.adapters.WinnerRVAdapter
+import com.example.chatterroyale.listItems.ChatterEntry
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -20,7 +18,7 @@ class HomeFragment : Fragment() {
     private val TAG = HomeFragment::class.simpleName
 
     private lateinit var homeViewModel: HomeViewModel
-    private lateinit var mAdapter: WinnerRecyclerViewAdapter
+    private lateinit var mAdapter: WinnerRVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +43,7 @@ class HomeFragment : Fragment() {
     }
 
     fun populateRecyclerView(winningEntriesList: List<ChatterEntry>){
-        mAdapter = WinnerRecyclerViewAdapter(winningEntriesList)
+        mAdapter = WinnerRVAdapter(winningEntriesList)
         winnersRecyclerView.adapter = mAdapter
     }
 
