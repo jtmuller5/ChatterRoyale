@@ -16,4 +16,5 @@
     <string name="submission_time">Submission Time</string>
     <string name="submission_stage">Submission Stage</string>
     <string name="value_points">Value Points</string>
+    <string name="chatter_submit">Submit</string>
 </resources>

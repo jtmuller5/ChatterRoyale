@@ -18,9 +18,8 @@
 
     <fragment
         android:id="@+id/nav_perks"
-        android:name="com.example.chatterroyale.ui.chatter.ChatterFragment"
-        android:label="@string/menu_perks"
-        tools:layout="@layout/fragment_profile" />
+        android:name="com.example.chatterroyale.ui.perks.PerksFragment"
+        android:label="@string/menu_perks" />
 
     <fragment
         android:id="@+id/nav_settings"
@@ -38,4 +37,8 @@
         android:id="@+id/colorFragment"
         android:name="com.example.chatterroyale.ui.settings.ColorFragment"
         android:label="ColorFragment" />
+    <fragment
+        android:id="@+id/chatterCrafter"
+        android:name="com.example.chatterroyale.ui.chatter.ChatterCrafter"
+        android:label="ChatterCrafter" /><action android:id="@+id/action_global_chatterCrafter" app:destination="@id/chatterCrafter"/>
 </navigation>

@@ -23,9 +23,11 @@ class SettingColor {
     //PROPERTIES
     var colorName : String = ""
     //var colorVal = getColor(Resources.getSystem(),R.color.colorScroll,null)
+    var colorVal : String = "#85499AD8"
 
-    constructor(name:String){
+
+    constructor(name:String,color: String){
         colorName = name
-        //colorVal=color
+        colorVal = color
     }
 }

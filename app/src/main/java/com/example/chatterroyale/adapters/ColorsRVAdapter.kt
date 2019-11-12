@@ -1,5 +1,6 @@
 package com.example.chatterroyale.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.widget.TextView
 import android.view.View
@@ -23,7 +24,7 @@ class ColorsRVAdapter(val settingColors:List<SettingColor>) : RecyclerView.Adapt
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var colorName : TextView = itemView.findViewById(R.id.colorName)
-        //var colorVal : ImageView = itemView.findViewById(R.id.colorVal)
+        var colorVal : ImageView = itemView.findViewById(R.id.colorVal)
 
         init {
             itemView.setOnClickListener { v: View  ->
@@ -43,7 +44,7 @@ class ColorsRVAdapter(val settingColors:List<SettingColor>) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val option = settingColors?.get(position)
         holder?.colorName?.text = option.colorName
-        //holder?.colorVal?.setBackgroundColor(option.colorVal)
+        holder?.colorVal?.setBackgroundColor(Color.parseColor(option.colorVal))
     }
 
     override fun getItemCount(): Int {

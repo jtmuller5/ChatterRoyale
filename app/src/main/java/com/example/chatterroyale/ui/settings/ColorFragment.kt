@@ -21,9 +21,14 @@ class ColorFragment:Fragment() {
         super.onCreate(savedInstanceState)
 
         //GENERATE SETTING LIST - EACH OPTION IS A DIFFERENT OBJECT
-        var red : SettingColor = SettingColor("Red")
-        var green : SettingColor = SettingColor("Green")
-        var blue : SettingColor = SettingColor("Blue")
+        var red : SettingColor = SettingColor("Red","#D81B60")
+        var green : SettingColor = SettingColor("Green","#00574B")
+        var blue : SettingColor = SettingColor("Blue","#85499AD8")
+
+        /*<color name="colorPrimary">#008577</color>
+        <color name="colorPrimaryDark">#00574B</color>
+        <color name="colorAccent">#D81B60</color>
+        <color name="colorScroll">#85499AD8</color>*/
 
         colors.add(red)
         colors.add(green)

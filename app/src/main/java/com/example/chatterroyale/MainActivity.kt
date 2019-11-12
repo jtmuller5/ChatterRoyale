@@ -14,11 +14,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import androidx.navigation.NavController
+import com.example.chatterroyale.listItems.ChatterData
+import com.example.chatterroyale.listItems.ChatterEntry
 import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    public var MyEntry : ChatterEntry = ChatterEntry()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,15 +31,14 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         var navController = findNavController(R.id.nav_host_fragment)
+
+        val fab: FloatingActionButton = findViewById(R.id.fab)
+        fab.setOnClickListener { _ ->
+            navController.navigate(R.id.action_global_chatterCrafter)
+        }
 
         navView.itemIconTintList = null
 
@@ -63,4 +67,13 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    public fun fabOn(on:Boolean){
+        if(on == true){
+            fab.show()
+        }
+        if(on == false){
+            fab.hide()
+        }
     }
+
+}
