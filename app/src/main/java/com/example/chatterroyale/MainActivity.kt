@@ -2,7 +2,6 @@ package com.example.chatterroyale
 
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -13,17 +12,21 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
-import androidx.navigation.NavController
-import com.example.chatterroyale.listItems.ChatterData
+import androidx.lifecycle.ViewModelProviders
 import com.example.chatterroyale.listItems.ChatterEntry
+import com.example.chatterroyale.ui.chatter.ChatterViewModel
 import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    public var MyEntry : ChatterEntry = ChatterEntry()
+    private var firestoreDB: FirebaseFirestore? = FirebaseFirestore.getInstance()
+    private lateinit var mainViewModel: MainViewModel
+    var MyUser:User = User()
+    var MyEntry : ChatterEntry = ChatterEntry()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        //LAYOUT AND MENU SETUP
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         var navController = findNavController(R.id.nav_host_fragment)
@@ -47,11 +51,13 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home, R.id.nav_chatter, R.id.nav_perks,
-                R.id.nav_profile, R.id.nav_settings
+                R.id.nav_stats, R.id.nav_settings
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        //*****************************************************************
 
         FirebaseApp.initializeApp(this)
     }

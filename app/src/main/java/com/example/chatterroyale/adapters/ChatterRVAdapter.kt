@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chatterroyale.listItems.ChatterEntry
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.chatter_entry_card.view.*
 
 class ChatterRVAdapter(val chatterEntries:List<ChatterEntry>): RecyclerView.Adapter<ChatterRVAdapter.ViewHolder>(){
 
@@ -21,6 +22,7 @@ class ChatterRVAdapter(val chatterEntries:List<ChatterEntry>): RecyclerView.Adap
         init {
             itemView.setOnClickListener { v: View ->
                 var position: Int = getAdapterPosition()
+                var test = v.chatterPost
 
                 Snackbar.make(v, "Click detected on item $position",
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()

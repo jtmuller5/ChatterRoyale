@@ -1,16 +1,16 @@
-package com.example.chatterroyale.ui.chatter
+package com.example.chatterroyale
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.chatterroyale.listItems.ChatterEntry
-import com.example.chatterroyale.ui.home.HomeViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
-class ChatterViewModel : ViewModel() {
-
-    private val TAG = ChatterViewModel::class.simpleName
+//ViewModel for storing data that should be available to all fragments
+//Primarily will be used for user data
+class MainViewModel:ViewModel() {
+    private val TAG = MainViewModel::class.simpleName
     private var firestoreDB: FirebaseFirestore? = FirebaseFirestore.getInstance()
 
     //RECYCLER VIEW POPULATION
@@ -39,8 +39,7 @@ class ChatterViewModel : ViewModel() {
         chatterPost.value = post
     }
 
-    fun getPost(): MutableLiveData<String>{
+    fun getPost(): MutableLiveData<String> {
         return chatterPost
     }
-
 }

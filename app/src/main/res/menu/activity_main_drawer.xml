@@ -17,27 +17,23 @@
             android:icon="@drawable/nav_perks"
             android:title="@string/menu_perks" />
         <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/nav_profile"
-            android:title="@string/menu_profile" />
+            android:id="@+id/nav_stats"
+            android:icon="@drawable/nav_stats"
+            android:title="@string/menu_stats" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/nav_settings"
             android:title="@string/menu_settings" />
     </group>
 
-    <!--Add new section in nav drawer-->
-    <!--<item android:title="Communicate">
+    Add new section in nav drawer
+    <item android:title="User">
     <menu>
         <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_menu_share"
-            android:title="@string/menu_perks" />
-        <item
-            android:id="@+id/nav_send"
-            android:icon="@drawable/ic_menu_send"
-            android:title="@string/menu_settings" />
+            android:id="@+id/signInFragment"
+            android:icon="@drawable/nav_profile"
+            android:title="@string/menu_profile" />
     </menu>
-</item>-->
+</item>
 
 </menu>

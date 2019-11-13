@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.R
 import com.example.chatterroyale.adapters.WinnerRVAdapter
 import com.example.chatterroyale.listItems.ChatterEntry
@@ -19,11 +20,14 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var mAdapter: WinnerRVAdapter
+    private lateinit var main: MainActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         homeViewModel.findWinningEntries()
+        main = requireActivity() as MainActivity
+        main.fabOn(true)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
