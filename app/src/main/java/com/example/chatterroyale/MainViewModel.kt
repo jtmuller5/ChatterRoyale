@@ -13,33 +13,24 @@ class MainViewModel:ViewModel() {
     private val TAG = MainViewModel::class.simpleName
     private var firestoreDB: FirebaseFirestore? = FirebaseFirestore.getInstance()
 
-    //RECYCLER VIEW POPULATION
-    var chatterEntriesList: MutableLiveData<List<ChatterEntry>> = MutableLiveData()
-    var chatterPost: MutableLiveData<String> = MutableLiveData()
-
+    var stage: MutableLiveData<Double> = MutableLiveData()
 
     //TODO: Use LiveData
-    fun findChatterEntries() : LiveData<List<ChatterEntry>> {
-        val list = mutableListOf<ChatterEntry>()
+    fun watchCurrentStage() : LiveData<Double> {
 
-        //Get all entries for the current round
-        firestoreDB?.collection("entries")?.whereEqualTo("round",1)?.get()?.addOnSuccessListener { entries ->
-            for (entry in entries) {
-                list.add(entry.toObject(ChatterEntry::class.java))
+        //Get the current stage from the master/today doc
+        var todayRef = firestoreDB?.collection("master")?.document("today")
+        todayRef?.addSnapshotListener{snapshot,e->
+            if (e != null) {
+                Log.w(TAG, "Listen failed.", e)
+                return@addSnapshotListener
             }
-            chatterEntriesList.postValue(list)
+            if (snapshot != null && snapshot.exists()) {
+                stage.postValue(snapshot.getDouble("stage") as Double)
+            } else {
+                Log.d(TAG, "Current data: null")
+            }
         }
-            ?.addOnFailureListener { e ->
-                Log.e("Failed", e.toString())
-            }
-        return chatterEntriesList
-    }
-
-    fun setPost(post: String){
-        chatterPost.value = post
-    }
-
-    fun getPost(): MutableLiveData<String> {
-        return chatterPost
+        return stage
     }
 }

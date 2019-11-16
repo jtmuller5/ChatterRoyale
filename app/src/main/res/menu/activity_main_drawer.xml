@@ -30,7 +30,7 @@
     <item android:title="User">
     <menu>
         <item
-            android:id="@+id/signInFragment"
+            android:id="@+id/profileFragment"
             android:icon="@drawable/nav_profile"
             android:title="@string/menu_profile" />
     </menu>

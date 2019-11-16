@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.R
@@ -36,15 +37,9 @@ class SignInFragment : Fragment() {
         super.onCreate(savedInstanceState)
         main = requireActivity() as MainActivity
         main.fabOn(false)
-        val user = FirebaseAuth.getInstance().currentUser
-        if (user != null) {
-            // User is signed in
-            main.MyUser.uid = user.uid
-            main.findNavController(R.id.nav_host_fragment).navigate(R.id.action_signInFragment_to_nav_home)
-        } else {
-            // No user is signed in
-            main.MyUser.uid = null
-        }
+        //main.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        main.supportActionBar?.hide()
+        checkUser()
     }
 
     override fun onCreateView(
@@ -89,6 +84,20 @@ class SignInFragment : Fragment() {
                 // response.getError().getErrorCode() and handle the error.
                 // ...
             }
+            checkUser()
+        }
+    }
+
+    fun checkUser(){
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            // User is signed in
+            main.MyUser.uid = user.uid
+            main.supportActionBar?.show()
+            main.findNavController(R.id.nav_host_fragment).navigate(R.id.action_signInFragment_to_nav_home)
+        } else {
+            // No user is signed in
+            main.MyUser.uid = null
         }
     }
 }

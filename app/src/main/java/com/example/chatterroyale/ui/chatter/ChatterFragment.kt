@@ -4,19 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.R
 import com.example.chatterroyale.adapters.ChatterRVAdapter
-import com.example.chatterroyale.adapters.WinnerRVAdapter
 import com.example.chatterroyale.listItems.ChatterEntry
-import com.example.chatterroyale.ui.home.HomeFragment
-import com.example.chatterroyale.ui.home.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_chatter.*
-import kotlinx.android.synthetic.main.fragment_home.*
 
 class ChatterFragment : Fragment() {
 
@@ -24,11 +20,12 @@ class ChatterFragment : Fragment() {
 
     private lateinit var chatterViewModel: ChatterViewModel
     private lateinit var mAdapter: ChatterRVAdapter
+    private lateinit var main : MainActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         chatterViewModel = ViewModelProviders.of(this).get(ChatterViewModel::class.java)
-        chatterViewModel.findChatterEntries()
+        main = requireActivity() as MainActivity
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -45,6 +42,12 @@ class ChatterFragment : Fragment() {
                 populateRecyclerView(chatterEntriesList)
             }
         })
+    }
+
+    override fun onStart() {
+        super.onStart()
+        chatterViewModel.findChatterEntries(main.stage)
+        main.supportActionBar?.title = "Chatter - Stage " + main.stage
     }
 
     fun populateRecyclerView(chatterEntriesList: List<ChatterEntry>){

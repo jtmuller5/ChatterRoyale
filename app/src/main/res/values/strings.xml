@@ -18,4 +18,6 @@
     <string name="value_points">Value Points</string>
     <string name="chatter_submit">Submit</string>
     <string name="menu_profile">Profile</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="last_sub_text">Last Submission</string>
 </resources>

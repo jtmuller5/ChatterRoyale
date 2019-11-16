@@ -12,7 +12,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
 
         <EditText
             android:id="@+id/entryPost"
@@ -52,6 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/submission_time"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
                     android:textSize="10sp"
                     android:visibility="visible" />
 
@@ -64,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:textColor="#000000"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
                     android:textSize="10sp" />
 
             </TableRow>
@@ -79,6 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/submission_stage"
+                    android:textColor="@color/common_google_signin_btn_text_dark_pressed"
                     android:textSize="10sp"
                     android:visibility="visible" />
 
@@ -91,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:textColor="#000000"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
                     android:textSize="10sp" />
 
             </TableRow>
@@ -106,6 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/value_points"
+                    android:textColor="@color/common_google_signin_btn_text_dark_pressed"
                     android:textSize="10sp"
                     android:visibility="visible" />
 
@@ -118,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:textColor="#000000"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
                     android:textSize="10sp" />
 
             </TableRow>

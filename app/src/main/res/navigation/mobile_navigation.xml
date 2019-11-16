@@ -47,6 +47,19 @@
         android:label="SignInFragment" >
         <action
             android:id="@+id/action_signInFragment_to_nav_home"
+            app:popUpTo="@+id/signInFragment"
+            app:popUpToInclusive="true"
             app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.chatterroyale.ui.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_signInFragment2"
+            app:destination="@+id/signInFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@+id/mobile_navigation"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

@@ -20,5 +20,13 @@ class User {
     var givenDownvotes: Int? = null
     var postsRemoved: Int? = null
 
+    //CURRENT ROUND LOGISTICS
+    var stage: Int? = null
+
     constructor()
 }
+
+data class UserData (
+    var uid: String? = "",
+    var totalEntries: Int? = 0
+)

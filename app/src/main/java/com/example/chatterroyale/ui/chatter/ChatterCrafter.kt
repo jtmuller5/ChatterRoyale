@@ -10,14 +10,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.R
+import com.example.chatterroyale.UserData
 import com.example.chatterroyale.listItems.ChatterData
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ServerTimestamp
 import kotlinx.android.synthetic.main.fragment_crafter.*
-import java.sql.Timestamp
-import java.time.Instant
 import java.util.*
 
 class ChatterCrafter : Fragment(){
@@ -26,6 +24,8 @@ class ChatterCrafter : Fragment(){
     private lateinit var main: MainActivity
     private lateinit var chatterViewModel : ChatterViewModel
 
+    val entriesRef = firestoreDB?.collection("entries")
+    val usersRef = firestoreDB?.collection("users")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -41,6 +41,7 @@ class ChatterCrafter : Fragment(){
         }
 
         chatterViewModel.getPost().observe(this, postObserver)
+        //chatterViewModel.watchCurrentStage()
 
         main = requireActivity() as MainActivity
         main.fabOn(false)
@@ -53,11 +54,18 @@ class ChatterCrafter : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         crafterSubmitButton.setOnClickListener {
-            if (chatterCrafterText.text.toString() != "") {
+            var post = chatterCrafterText.text.toString()
+            var message = validateEntry(post)
+            if (message == "okay") {
                 submitEntry(chatterCrafterText.text.toString())
+                chatterCrafterText.text.clear()
+                setLastChatTime()
             }
-            else {
+            else if(message == "no text"){
                 Snackbar.make(view, "Text is required bruh", Snackbar.LENGTH_LONG).setAction("Action", null).show()
+            }
+            else if(message == "too long"){
+                Snackbar.make(view, "Text needs to be shorter bruh", Snackbar.LENGTH_LONG).setAction("Action", null).show()
             }
         }
     }
@@ -75,9 +83,7 @@ class ChatterCrafter : Fragment(){
     override fun onResume() {
         super.onResume()
         main.fabOn(false)
-        if(main.MyEntry.sTime != null){
-            lastChatTime.text = main.MyEntry.sTime.toString()
-        }
+        setLastChatTime()
     }
 
     //Save any text and show the fab
@@ -99,11 +105,49 @@ class ChatterCrafter : Fragment(){
     fun submitEntry(post:String){
         var sTime : Date = Calendar.getInstance().time
         main.MyEntry.sTime = sTime
+
         val entry = ChatterData(
             post,
-            1,
-            sTime
+            main.stage,
+            sTime,
+            main.MyUser.uid
             )
-        firestoreDB?.collection("entries")?.add(entry)
+
+        entriesRef?.add(entry)
+
+        val userDoc = usersRef?.document(main.MyUser.uid.toString())
+        userDoc?.get()
+            ?.addOnSuccessListener { user ->
+                if(user.exists()){
+                    Log.d("user",user.toString())
+                    userDoc.update("totalEntries",FieldValue.increment(1))
+                }
+                else{
+                    val newUser = UserData(
+                    main.MyUser.uid.toString(),
+                    1
+                )
+                    userDoc.set(newUser)
+
+                }
+            }
+
+    }
+
+    fun validateEntry(post:String):String{
+     var message:String = "okay"
+        if(post == ""){
+            message = "no text"
+        }
+        else if(post.length > 100){
+            message = "too long"
+        }
+        return message
+    }
+
+    fun setLastChatTime(){
+        if(main.MyEntry.sTime != null){
+            lastChatTime.text = main.MyEntry.sTime.toString()
+        }
     }
 }

@@ -29,4 +29,5 @@ class HomeViewModel : ViewModel() {
             }
         return winningEntriesList
     }
+
 }
