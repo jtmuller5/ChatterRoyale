@@ -36,8 +36,9 @@ class ChatterEntry {
 
 //Data submitted to Firestore
 data class ChatterData (
+    var round: Int?,
+    var stage: Int?,
     var entryPost: String = "",                      //The text post submitted by the user
-    var round: Int = 1,
     var sTime: Date? = null,
     var uid: String? = ""
     //val sTimestamp : Timestamp

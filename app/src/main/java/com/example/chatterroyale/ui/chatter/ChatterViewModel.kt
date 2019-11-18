@@ -19,11 +19,11 @@ class ChatterViewModel : ViewModel() {
     var chatterPost: MutableLiveData<String> = MutableLiveData()
 
     //TODO: Use LiveData
-    fun findChatterEntries(stage : Int) : LiveData<List<ChatterEntry>> {
+    fun findChatterEntries(round: Int?, stage : Int?) : LiveData<List<ChatterEntry>> {
         val list = mutableListOf<ChatterEntry>()
 
         //Get all entries for the current round
-        firestoreDB?.collection("entries")?.whereEqualTo("round",stage)?.get()?.addOnSuccessListener { entries ->
+        firestoreDB?.collection("entries")?.whereEqualTo("round",round)?.whereEqualTo("stage",stage)?.get()?.addOnSuccessListener { entries ->
             for (entry in entries) {
                 list.add(entry.toObject(ChatterEntry::class.java))
             }

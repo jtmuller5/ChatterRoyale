@@ -10,7 +10,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_stats">Stats</string>
     <string name="menu_tools">Tools</string>
-    <string name="menu_perks">Perks</string>
+    <string name="menu_store">Store</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_chatter">Chatter</string>
     <string name="submission_time">Submission Time</string>
@@ -20,4 +20,25 @@
     <string name="menu_profile">Profile</string>
     <string name="sign_out">Sign Out</string>
     <string name="last_sub_text">Last Submission</string>
+    <string name="level_label">Level</string>
+    <string name="total_exp">Total EXP</string>
+    <string name="unspent_EXP">Unspent EXP</string>
+    <string name="round_EXP" >Round EXP</string>
+    <string name="unspent_round_EXP">Unspent Round EXP</string>
+    <string name="upvotes_received">Upvotes Received</string>
+    <string name="upvotes_given">Upvotes Given</string>
+    <string name="downvotes_received">Downvotes Received</string>
+    <string name="downvotes_given">Downvotes Given</string>
+    <string name="tags_received">Tags Received</string>
+    <string name="tags_given">Tags Given</string>
+    <string name="total_entries">Total Entries</string>
+    <string name="winning_entries">Winning Entries</string>
+    <string name="finalist_entries">Finalist Entries</string>
+    <string name="experience_section">Experience (EXP)</string>
+    <string name="interactions_section">Interactions</string>
+    <string name="entries_section">Entries</string>
+    <string name="eliminations">Eliminations</string>
+    <string name="top_tag_received">Top Tag Received</string>
+    <string name="top_tag_given">Top Tag Given</string>
+    <string name="eliminated_entries">Eliminated Entries</string>
 </resources>

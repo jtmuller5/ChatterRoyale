@@ -44,9 +44,9 @@ class ChatterFragment : Fragment() {
         })
     }
 
-    override fun onStart() {
-        super.onStart()
-        chatterViewModel.findChatterEntries(main.stage)
+    override fun onResume() {
+        super.onResume()
+        chatterViewModel.findChatterEntries(main.round,main.stage)
         main.supportActionBar?.title = "Chatter - Stage " + main.stage
     }
 

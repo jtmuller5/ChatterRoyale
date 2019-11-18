@@ -14,6 +14,7 @@ class MainViewModel:ViewModel() {
     private var firestoreDB: FirebaseFirestore? = FirebaseFirestore.getInstance()
 
     var stage: MutableLiveData<Double> = MutableLiveData()
+    var round: MutableLiveData<Double> = MutableLiveData()
 
     //TODO: Use LiveData
     fun watchCurrentStage() : LiveData<Double> {
@@ -32,5 +33,23 @@ class MainViewModel:ViewModel() {
             }
         }
         return stage
+    }
+
+    fun watchCurrentRound() : LiveData<Double> {
+
+        //Get the current stage from the master/today doc
+        var todayRef = firestoreDB?.collection("master")?.document("today")
+        todayRef?.addSnapshotListener{snapshot,e->
+            if (e != null) {
+                Log.w(TAG, "Listen failed.", e)
+                return@addSnapshotListener
+            }
+            if (snapshot != null && snapshot.exists()) {
+                round.postValue(snapshot.getDouble("round") as Double)
+            } else {
+                Log.d(TAG, "Current data: null")
+            }
+        }
+        return round
     }
 }

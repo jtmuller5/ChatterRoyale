@@ -16,9 +16,9 @@
         android:label="@string/menu_chatter" />
 
     <fragment
-        android:id="@+id/nav_perks"
-        android:name="com.example.chatterroyale.ui.perks.PerksFragment"
-        android:label="@string/menu_perks" />
+        android:id="@+id/nav_store"
+        android:name="com.example.chatterroyale.ui.perks.StoreFragment"
+        android:label="@string/menu_store" />
 
     <fragment
         android:id="@+id/nav_settings"
@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/chatterCrafter"
         android:name="com.example.chatterroyale.ui.chatter.ChatterCrafter"
-        android:label="ChatterCrafter" />
+        android:label="Crafter" />
     <action android:id="@+id/action_global_chatterCrafter" app:destination="@id/chatterCrafter" />
     <fragment
         android:id="@+id/signInFragment"
@@ -54,7 +54,7 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.chatterroyale.ui.profile.ProfileFragment"
-        android:label="ProfileFragment" >
+        android:label="@string/menu_profile">
         <action
             android:id="@+id/action_profileFragment_to_signInFragment2"
             app:destination="@+id/signInFragment"

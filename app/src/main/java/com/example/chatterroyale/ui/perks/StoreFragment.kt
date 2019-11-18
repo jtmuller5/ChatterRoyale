@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.chatterroyale.R
 
-class PerksFragment : Fragment() {
+class StoreFragment : Fragment() {
 
     private lateinit var perksViewModel: ProfileViewModel
 
@@ -21,7 +21,7 @@ class PerksFragment : Fragment() {
     ): View? {
         perksViewModel =
             ViewModelProviders.of(this).get(ProfileViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_perks, container, false)
+        val root = inflater.inflate(R.layout.fragment_store, container, false)
         val textView: TextView = root.findViewById(R.id.text_perks)
         perksViewModel.text.observe(this, Observer {
             textView.text = it

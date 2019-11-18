@@ -15,9 +15,7 @@ import android.view.Menu
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.chatterroyale.listItems.ChatterEntry
-import com.example.chatterroyale.ui.chatter.ChatterViewModel
 import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -28,7 +26,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainViewModel: MainViewModel
     var MyUser : User = User()
     var MyEntry : ChatterEntry = ChatterEntry()
-    var stage : Int = 1
+    var round : Int? = null
+    var stage : Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_chatter, R.id.nav_perks,
+                R.id.nav_home, R.id.nav_chatter, R.id.nav_store,
                 R.id.nav_stats, R.id.nav_settings
             ), drawerLayout
         )
@@ -60,13 +59,23 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
-        mainViewModel.watchCurrentStage().observe(this, Observer { current ->
-            MyUser.stage = current.toInt()
-            stage = current.toInt()
-        })
         //*****************************************************************
 
         FirebaseApp.initializeApp(this)
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        mainViewModel.watchCurrentStage().observe(this, Observer { currentStage ->
+            MyUser.stage = currentStage.toInt()
+            stage = currentStage.toInt()
+        })
+
+        mainViewModel.watchCurrentRound().observe(this, Observer { currentRound ->
+            MyUser.round = currentRound.toInt()
+            round = currentRound.toInt()
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

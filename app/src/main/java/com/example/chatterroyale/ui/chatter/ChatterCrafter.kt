@@ -106,9 +106,11 @@ class ChatterCrafter : Fragment(){
         var sTime : Date = Calendar.getInstance().time
         main.MyEntry.sTime = sTime
 
+        //
         val entry = ChatterData(
+            main.MyUser.round,
+            main.MyUser.stage,
             post,
-            main.stage,
             sTime,
             main.MyUser.uid
             )

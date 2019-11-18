@@ -21,6 +21,7 @@ class User {
     var postsRemoved: Int? = null
 
     //CURRENT ROUND LOGISTICS
+    var round: Int? = null
     var stage: Int? = null
 
     constructor()
