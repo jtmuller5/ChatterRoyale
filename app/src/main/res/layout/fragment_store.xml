@@ -5,27 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/levelLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/level_label"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userLevel">
+        app:layout_constraintTop_toBottomOf="@+id/textView16">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -38,22 +25,14 @@
                 android:gravity="center"
                 android:padding="4dp">
 
-                <TextView
-                    android:id="@+id/unspentEXPLabel"
-                    android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/storeTags"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/total_exp" />
+                    android:gravity="center"
+                    android:text="@string/store_tags"
+                    android:textColor="@color/colorAccentBlue" />
 
-                <Space
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="TextView" />
             </TableRow>
 
             <TableRow
@@ -62,22 +41,14 @@
                 android:gravity="center"
                 android:padding="4dp">
 
-                <TextView
-                    android:id="@+id/unspentEXPLabel"
+                <Button
+                    android:id="@+id/storePerks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/unspent_EXP" />
+                    android:gravity="center"
+                    android:text="@string/store_perks"
+                    android:textColor="@color/colorAccentDark" />
 
-                <Space
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="TextView" />
             </TableRow>
 
             <TableRow
@@ -86,48 +57,74 @@
                 android:gravity="center"
                 android:padding="4dp">
 
-                <TextView
-                    android:id="@+id/unspentEXPLabel"
+                <Button
+                    android:id="@+id/storeFilters"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/round_EXP" />
+                    android:gravity="center"
+                    android:text="@string/store_filters"
+                    android:textColor="@color/colorAccentDark" />
 
-                <Space
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent" />
+            </TableRow>
 
-                <TextView
-                    android:id="@+id/textView14"
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="4dp">
+
+                <Button
+                    android:id="@+id/storeSorters"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="TextView" />
+                    android:gravity="center"
+                    android:text="@string/store_sorters"
+                    android:textColor="@color/colorAccentDark" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="4dp">
+
+
+                <Button
+                    android:id="@+id/storeCustomizations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/store_customizations"
+                    android:textColor="@color/colorAccentDark" />
+
             </TableRow>
 
         </TableLayout>
     </ScrollView>
 
     <TextView
-        android:id="@+id/userLevel"
+        android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
-        android:text="Your Level"
-        android:textSize="24sp"
+        android:text="EXP from the current round can be spent on tags"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/levelLabel" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/levelTitle"
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:text="Level Title"
-        app:layout_constraintBottom_toBottomOf="@+id/userLevel"
+        android:layout_marginTop="4dp"
+        android:text="EXP from the previous round can be spent on everything else"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/levelLabel" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

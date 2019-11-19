@@ -105,6 +105,7 @@ class ChatterCrafter : Fragment(){
     fun submitEntry(post:String){
         var sTime : Date = Calendar.getInstance().time
         main.MyEntry.sTime = sTime
+        var entryID = entriesRef!!.document().id
 
         //
         val entry = ChatterData(
@@ -112,10 +113,11 @@ class ChatterCrafter : Fragment(){
             main.MyUser.stage,
             post,
             sTime,
-            main.MyUser.uid
+            main.MyUser.uid,
+            entryID
             )
 
-        entriesRef?.add(entry)
+        entriesRef?.document(entryID).set(entry)
 
         val userDoc = usersRef?.document(main.MyUser.uid.toString())
         userDoc?.get()

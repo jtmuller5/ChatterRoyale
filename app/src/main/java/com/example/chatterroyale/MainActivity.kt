@@ -76,6 +76,10 @@ class MainActivity : AppCompatActivity() {
             MyUser.round = currentRound.toInt()
             round = currentRound.toInt()
         })
+
+        mainViewModel.watchCurrentUser().observe(this, Observer { currentUser ->
+            MyUser.uid = currentUser.uid
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

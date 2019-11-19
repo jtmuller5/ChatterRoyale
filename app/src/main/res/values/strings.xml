@@ -41,4 +41,11 @@
     <string name="top_tag_received">Top Tag Received</string>
     <string name="top_tag_given">Top Tag Given</string>
     <string name="eliminated_entries">Eliminated Entries</string>
+    <string name="average_rank">Average Rank</string>
+    <string name="average_post_length">Average Post Length</string>
+    <string name="store_tags">TAGS</string>
+    <string name="store_perks">PERKS</string>
+    <string name="store_filters">FILTERS</string>
+    <string name="store_sorters">SORTERS</string>
+    <string name="store_customizations">CUSTOMIZATIONS</string>
 </resources>

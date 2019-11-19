@@ -5,6 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.chatterroyale.listItems.ChatterEntry
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 
 //ViewModel for storing data that should be available to all fragments
@@ -15,6 +17,7 @@ class MainViewModel:ViewModel() {
 
     var stage: MutableLiveData<Double> = MutableLiveData()
     var round: MutableLiveData<Double> = MutableLiveData()
+    var user: MutableLiveData<FirebaseUser> = MutableLiveData()
 
     //TODO: Use LiveData
     fun watchCurrentStage() : LiveData<Double> {
@@ -51,5 +54,15 @@ class MainViewModel:ViewModel() {
             }
         }
         return round
+    }
+
+    fun watchCurrentUser() : LiveData<FirebaseUser> {
+
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            user.postValue(currentUser)
+        }
+
+        return user
     }
 }
