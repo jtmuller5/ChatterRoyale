@@ -8,10 +8,6 @@ import com.google.android.material.snackbar.Snackbar
 
 class WinningViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    var submissionTime: TextView = itemView.findViewById(R.id.submissionTimeValue)
-    var submissionStage: TextView = itemView.findViewById(R.id.submissionStageValue)
-    var valuePoints: TextView = itemView.findViewById(R.id.winningValuePointsValue)
-
     init {
 
         itemView.setOnClickListener { v: View ->

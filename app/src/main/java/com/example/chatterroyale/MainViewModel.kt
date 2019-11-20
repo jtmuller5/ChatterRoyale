@@ -18,6 +18,8 @@ class MainViewModel:ViewModel() {
     var stage: MutableLiveData<Double> = MutableLiveData()
     var round: MutableLiveData<Double> = MutableLiveData()
     var user: MutableLiveData<FirebaseUser> = MutableLiveData()
+    var roundEXP: MutableLiveData<Int> = MutableLiveData()
+    var unspentRoundEXP: MutableLiveData<Int> = MutableLiveData()
 
     //TODO: Use LiveData
     fun watchCurrentStage() : LiveData<Double> {
@@ -35,6 +37,7 @@ class MainViewModel:ViewModel() {
                 Log.d(TAG, "Current data: null")
             }
         }
+
         return stage
     }
 
@@ -65,4 +68,9 @@ class MainViewModel:ViewModel() {
 
         return user
     }
+
+   /* fun watchRoundEXP() : LiveData<Int>{
+
+        return
+    }*/
 }

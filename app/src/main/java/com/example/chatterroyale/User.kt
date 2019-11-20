@@ -2,6 +2,7 @@ package com.example.chatterroyale
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import java.lang.reflect.Array
 
 class User {
     //PROPERTIES
@@ -19,10 +20,13 @@ class User {
     var givenUpvotes: Int? = null
     var givenDownvotes: Int? = null
     var postsRemoved: Int? = null
+    var postsVotedOn:ArrayList<String> = arrayListOf<String>()
 
     //CURRENT ROUND LOGISTICS
     var round: Int? = null
     var stage: Int? = null
+    var unspentRoundEXP: Int = 0
+    var roundEXP: Int = 0
 
     constructor()
 }

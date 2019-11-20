@@ -1,7 +1,9 @@
 package com.example.chatterroyale.ui.chatter
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -51,7 +53,7 @@ class ChatterFragment : Fragment() {
     }
 
     fun populateRecyclerView(chatterEntriesList: List<ChatterEntry>){
-        mAdapter = ChatterRVAdapter(chatterEntriesList)
+        mAdapter = ChatterRVAdapter(chatterEntriesList,main)
         chatterRecyclerView.adapter = mAdapter
     }
 }

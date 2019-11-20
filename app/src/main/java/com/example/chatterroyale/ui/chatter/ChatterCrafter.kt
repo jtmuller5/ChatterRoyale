@@ -106,6 +106,7 @@ class ChatterCrafter : Fragment(){
         var sTime : Date = Calendar.getInstance().time
         main.MyEntry.sTime = sTime
         var entryID = entriesRef!!.document().id
+        var voteSum = 0
 
         //
         val entry = ChatterData(
@@ -114,7 +115,8 @@ class ChatterCrafter : Fragment(){
             post,
             sTime,
             main.MyUser.uid,
-            entryID
+            entryID,
+            voteSum
             )
 
         entriesRef?.document(entryID).set(entry)

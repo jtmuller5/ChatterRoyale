@@ -46,6 +46,11 @@ class HomeFragment : Fragment() {
         })
     }
 
+    override fun onResume() {
+        super.onResume()
+        homeViewModel.findWinningEntries()
+    }
+
     fun populateRecyclerView(winningEntriesList: List<ChatterEntry>){
         mAdapter = WinnerRVAdapter(winningEntriesList)
         winnersRecyclerView.adapter = mAdapter

@@ -21,9 +21,12 @@ class WinnerRVAdapter(val winningEntries:List<ChatterEntry>) : RecyclerView.Adap
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var submissionTime: TextView = itemView.findViewById(com.example.chatterroyale.R.id.submissionTimeValue)
-        var submissionStage: TextView = itemView.findViewById(com.example.chatterroyale.R.id.submissionStageValue)
-        var valuePoints: TextView = itemView.findViewById(com.example.chatterroyale.R.id.winningValuePointsValue)
+        var doubleUpVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.doubleUpVal)
+        var singleUpVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.singleUpVal)
+        var singleDownVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.singleDownVal)
+        var doubleDownVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.doubleDownVal)
+        var voteSumVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.voteSumVal)
+        var winnerPost: TextView = itemView.findViewById(com.example.chatterroyale.R.id.winnerPost)
 
         init {
             itemView.setOnClickListener { v: View  ->
@@ -41,14 +44,20 @@ class WinnerRVAdapter(val winningEntries:List<ChatterEntry>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val entry = winningEntries?.get(position)
-        var subDate = entry?.sTime
+        val entry = winningEntries.get(position)
+        /*var subDate = entry?.sTime
         if(subDate != null) {
             var subTime = formatTime(subDate)
             holder?.submissionTime?.text = subTime
         }
         holder?.submissionStage?.text = entry?.stage.toString()
-        holder?.valuePoints?.text = entry?.vp.toString()
+        holder?.valuePoints?.text = entry?.vp.toString()*/
+        holder.doubleUpVal.text = entry.doubleUpvotes.toString()
+        holder.doubleDownVal.text = entry.doubleDownvotes.toString()
+        holder.singleUpVal.text = entry.singleUpvotes.toString()
+        holder.singleDownVal.text = entry.singleDownvotes.toString()
+        holder.winnerPost.text = entry.entryPost
+        holder.voteSumVal.text = entry.voteSum.toString()
     }
 
     override fun getItemCount(): Int {
@@ -58,8 +67,8 @@ class WinnerRVAdapter(val winningEntries:List<ChatterEntry>) : RecyclerView.Adap
     fun formatTime(date : Date?) : String{
         var sdf= SimpleDateFormat("HH:mm")
         var cal : Calendar = Calendar.getInstance()
-        cal?.setTime(date)
-        var result = sdf?.format(cal.time)
+        cal.setTime(date)
+        var result = sdf.format(cal.time)
         return result
     }
 

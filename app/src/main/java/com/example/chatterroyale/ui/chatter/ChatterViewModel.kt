@@ -7,12 +7,15 @@ import androidx.lifecycle.ViewModel
 import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.listItems.ChatterEntry
 import com.example.chatterroyale.ui.home.HomeViewModel
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 class ChatterViewModel : ViewModel() {
 
     private val TAG = ChatterViewModel::class.simpleName
     private var firestoreDB: FirebaseFirestore? = FirebaseFirestore.getInstance()
+    private var stageRef: Query? = firestoreDB?.collection("entries")?.whereEqualTo("round", 1)?.whereEqualTo("stage", 1)
 
     //RECYCLER VIEW POPULATION
     var chatterEntriesList: MutableLiveData<List<ChatterEntry>> = MutableLiveData()
@@ -22,13 +25,21 @@ class ChatterViewModel : ViewModel() {
     fun findChatterEntries(round: Int?, stage : Int?) : LiveData<List<ChatterEntry>> {
         val list = mutableListOf<ChatterEntry>()
 
-        //Get all entries for the current round
-        firestoreDB?.collection("entries")?.whereEqualTo("round",round)?.whereEqualTo("stage",stage)?.get()?.addOnSuccessListener { entries ->
-            for (entry in entries) {
-                list.add(entry.toObject(ChatterEntry::class.java))
-            }
-            chatterEntriesList.postValue(list)
+        if(stage != 24) {
+            stageRef = firestoreDB?.collection("entries")?.whereEqualTo("round", round)?.whereEqualTo("stage", stage)?.orderBy("voteSum", Query.Direction.DESCENDING)
         }
+        else if (stage == 24) {
+            stageRef = firestoreDB?.collection("entries")?.whereEqualTo("round", round)?.whereEqualTo("finalist",true)
+        }
+
+        //Get all entries for the current round
+        stageRef?.get()
+            ?.addOnSuccessListener { entries ->
+                for (entry in entries) {
+                    list.add(entry.toObject(ChatterEntry::class.java))
+                }
+                chatterEntriesList.postValue(list)
+            }
             ?.addOnFailureListener { e ->
                 Log.e("Failed", e.toString())
             }

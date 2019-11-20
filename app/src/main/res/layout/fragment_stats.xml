@@ -67,7 +67,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/totEXPVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -92,7 +92,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/unspentEXPVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -117,7 +117,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/roundEXPVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -142,7 +142,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/unspentRoundEXPVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -184,7 +184,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/upvotesReceivedVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -209,7 +209,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/upvotesGivenVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -234,7 +234,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/downvotesReceivedVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -259,7 +259,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/downvotesGivenVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -284,7 +284,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/eliminationsVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -309,7 +309,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/tagsReceivedVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -334,7 +334,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/tagsGivenVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -359,7 +359,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/topTagReceivedVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -384,7 +384,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/topTagGivenVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -426,7 +426,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/totalEntriesVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -451,7 +451,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/winningEntriesVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -475,7 +475,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/finalistEntriesVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -500,7 +500,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/eliminatedEntriesVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -525,7 +525,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/averageRankVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -550,7 +550,7 @@
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/averagePostLengthVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"

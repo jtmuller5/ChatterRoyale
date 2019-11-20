@@ -18,14 +18,15 @@ class HomeViewModel : ViewModel() {
     //TODO: Use LiveData
     fun findWinningEntries() : LiveData<List<ChatterEntry>> {
         val list = mutableListOf<ChatterEntry>()
-        firestoreDB?.collection("winningEntries")?.get()?.addOnSuccessListener { entries ->
+        firestoreDB?.collection("entries")?.whereEqualTo("winner",true)
+            ?.get()?.addOnSuccessListener { entries ->
             for (entry in entries) {
                 list.add(entry.toObject(ChatterEntry::class.java))
             }
             winningEntriesList.postValue(list)
         }
             ?.addOnFailureListener { e ->
-                Log.e("Failed", e?.toString())
+                Log.e("Failed", e.toString())
             }
         return winningEntriesList
     }
