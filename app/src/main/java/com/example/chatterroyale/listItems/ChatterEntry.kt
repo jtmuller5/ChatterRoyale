@@ -46,6 +46,7 @@ data class ChatterData (
     var sTime: Date? = null,
     var uid: String? = "",
     var entryID: String = "",
-    var voteSum: Int = 0
+    var voteSum: Int = 0,
+    var finalist: Boolean = false
     //val sTimestamp : Timestamp
 )

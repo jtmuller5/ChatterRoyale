@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.listItems.ChatterEntry
 import com.example.chatterroyale.ui.home.HomeViewModel
+import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -33,13 +34,12 @@ class ChatterViewModel : ViewModel() {
         }
 
         //Get all entries for the current round
-        stageRef?.get()
-            ?.addOnSuccessListener { entries ->
-                for (entry in entries) {
-                    list.add(entry.toObject(ChatterEntry::class.java))
-                }
+        stageRef?.get()?.addOnSuccessListener { entries ->
+            for (entry in entries) {
+                list.add(entry.toObject(ChatterEntry::class.java))
                 chatterEntriesList.postValue(list)
             }
+        }
             ?.addOnFailureListener { e ->
                 Log.e("Failed", e.toString())
             }

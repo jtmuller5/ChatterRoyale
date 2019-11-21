@@ -107,6 +107,7 @@ class ChatterCrafter : Fragment(){
         main.MyEntry.sTime = sTime
         var entryID = entriesRef!!.document().id
         var voteSum = 0
+        var finalist = false
 
         //
         val entry = ChatterData(
@@ -116,7 +117,8 @@ class ChatterCrafter : Fragment(){
             sTime,
             main.MyUser.uid,
             entryID,
-            voteSum
+            voteSum,
+            finalist
             )
 
         entriesRef?.document(entryID).set(entry)

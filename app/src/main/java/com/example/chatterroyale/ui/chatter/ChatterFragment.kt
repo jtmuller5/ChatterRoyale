@@ -39,11 +39,16 @@ class ChatterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         chatterRecyclerView.layoutManager = LinearLayoutManager(activity)
         chatterRecyclerView.setHasFixedSize(true)
+
         chatterViewModel.chatterEntriesList.observe(this, Observer { chatterEntriesList ->
-            chatterEntriesList?.let{
+                chatterEntriesList?.let{
                 populateRecyclerView(chatterEntriesList)
             }
         })
+        swipeContainer.setOnRefreshListener {
+            chatterViewModel.findChatterEntries(main.round,main.stage)
+            swipeContainer.isRefreshing = false
+        }
     }
 
     override fun onResume() {
@@ -53,7 +58,7 @@ class ChatterFragment : Fragment() {
     }
 
     fun populateRecyclerView(chatterEntriesList: List<ChatterEntry>){
-        mAdapter = ChatterRVAdapter(chatterEntriesList,main)
-        chatterRecyclerView.adapter = mAdapter
+            mAdapter = ChatterRVAdapter(chatterEntriesList,main)
+            chatterRecyclerView.adapter = mAdapter
     }
 }

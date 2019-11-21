@@ -40,7 +40,6 @@ class StatsViewModel : ViewModel() {
     fun findUserStats(uid: String):LiveData<Double>{
         var statsRef=firestoreDB?.collection("users")?.document(uid)
         statsRef?.addSnapshotListener{ user,e ->
-            Log.d("IN",uid.toString())
                 if(e!=null){
                     Log.w(TAG, "Listen failed.", e)
                     return@addSnapshotListener
