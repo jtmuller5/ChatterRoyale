@@ -76,9 +76,8 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener, Ges
         FirebaseApp.initializeApp(this)
     }
 
-    override fun onStart() {
-        super.onStart()
-
+    override fun onResume() {
+        super.onResume()
         mainViewModel.watchCurrentStage().observe(this, Observer { currentStage ->
             if(MyUser.stage != currentStage.toInt()){
                 MyUser.postsVotedOn.clear() //Clear array of posts that were voted on whenever the stage is updated

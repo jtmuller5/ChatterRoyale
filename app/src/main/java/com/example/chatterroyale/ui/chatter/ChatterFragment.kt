@@ -53,8 +53,9 @@ class ChatterFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        main.fabOn(false)
         chatterViewModel.findChatterEntries(main.round,main.stage)
-        main.supportActionBar?.title = "Chatter - Stage " + main.stage
+        currentStage.text = main.stage.toString()
     }
 
     fun populateRecyclerView(chatterEntriesList: List<ChatterEntry>){

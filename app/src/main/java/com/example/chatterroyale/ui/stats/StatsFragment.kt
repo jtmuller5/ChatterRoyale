@@ -92,4 +92,9 @@ class StatsFragment : Fragment() {
 
         return root
     }
+
+    override fun onResume() {
+        super.onResume()
+        main.fabOn(false)
+    }
 }

@@ -27,10 +27,10 @@ class ChatterViewModel : ViewModel() {
         val list = mutableListOf<ChatterEntry>()
 
         if(stage != 24) {
-            stageRef = firestoreDB?.collection("entries")?.whereEqualTo("round", round)?.whereEqualTo("stage", stage)?.orderBy("voteSum", Query.Direction.DESCENDING)
+            stageRef = firestoreDB?.collection("entries")?.whereEqualTo("round", round)?.orderBy("voteSum", Query.Direction.DESCENDING)
         }
         else if (stage == 24) {
-            stageRef = firestoreDB?.collection("entries")?.whereEqualTo("round", round)?.whereEqualTo("finalist",true)
+            stageRef = firestoreDB?.collection("entries")?.whereEqualTo("round", round)?.orderBy("finalist",Query.Direction.DESCENDING)
         }
 
         //Get all entries for the current round
