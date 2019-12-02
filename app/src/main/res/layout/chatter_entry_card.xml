@@ -25,7 +25,7 @@
             android:text="TextView"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tableLayout2"
+            app:layout_constraintEnd_toStartOf="@+id/characteristicVal"
             app:layout_constraintStart_toEndOf="@+id/tableLayout3"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
@@ -114,7 +114,15 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/finalistStar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/finalist_star"
+                    tools:visibility="invisible" />
+            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
@@ -128,5 +136,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </TableLayout>
+
+        <TextView
+            android:id="@+id/characteristicVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Valuable"
+            android:textColor="#FFFFFF"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tableLayout2"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

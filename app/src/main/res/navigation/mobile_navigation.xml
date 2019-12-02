@@ -39,7 +39,11 @@
     <fragment
         android:id="@+id/chatterCrafter"
         android:name="com.example.chatterroyale.ui.chatter.ChatterCrafter"
-        android:label="Crafter" />
+        android:label="Crafter" >
+        <action
+            android:id="@+id/action_chatterCrafter_to_nav_chatter"
+            app:destination="@id/nav_chatter" />
+    </fragment>
     <action android:id="@+id/action_global_chatterCrafter" app:destination="@id/chatterCrafter" />
     <fragment
         android:id="@+id/signInFragment"

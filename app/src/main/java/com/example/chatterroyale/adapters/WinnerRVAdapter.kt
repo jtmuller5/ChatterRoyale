@@ -1,6 +1,7 @@
 package com.example.chatterroyale.adapters
 
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.widget.TextView
 import android.view.View
 import android.view.ViewGroup
@@ -28,14 +29,15 @@ class WinnerRVAdapter(val winningEntries:List<ChatterEntry>) : RecyclerView.Adap
         var voteSumVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.voteSumVal)
         var winnerPost: TextView = itemView.findViewById(com.example.chatterroyale.R.id.winnerPost)
 
-        init {
-            itemView.setOnClickListener { v: View  ->
+        /*init {
+            itemView.setOnTouchListener { v: View, m: MotionEvent  ->
                 var position: Int = getAdapterPosition()
 
                 Snackbar.make(v, "Click detected on item $position",
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()
+                false
             }
-        }
+        }*/
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {

@@ -48,4 +48,6 @@
     <string name="store_filters">FILTERS</string>
     <string name="store_sorters">SORTERS</string>
     <string name="store_customizations">CUSTOMIZATIONS</string>
+    <string name="greeting">Greeting</string>
+    <string name="inappropriate">Inappropriate</string>
 </resources>

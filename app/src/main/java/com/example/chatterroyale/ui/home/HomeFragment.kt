@@ -1,9 +1,12 @@
 package com.example.chatterroyale.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -12,6 +15,8 @@ import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.R
 import com.example.chatterroyale.adapters.WinnerRVAdapter
 import com.example.chatterroyale.listItems.ChatterEntry
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_chatter.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -21,6 +26,10 @@ class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var mAdapter: WinnerRVAdapter
     private lateinit var main: MainActivity
+    var isSwiping : Boolean = false
+    var startX: Float? = null
+    var endX: Float? = null
+    var moveX: Float? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +53,27 @@ class HomeFragment : Fragment() {
                 populateRecyclerView(winningEntriesList)
             }
         })
+
+        winnersRecyclerView.setOnTouchListener { v: View, m: MotionEvent ->
+            if (m.actionMasked == MotionEvent.ACTION_DOWN && !isSwiping) {
+                startX = m.x
+                Log.d("Start", startX.toString())
+                Log.d("StartSwipe", isSwiping.toString())
+                isSwiping = true
+            } else if (m.actionMasked == MotionEvent.ACTION_UP && isSwiping) {
+                endX = m.x
+                Log.d("End", endX.toString())
+                isSwiping = false
+            } else if (m.actionMasked == MotionEvent.ACTION_MOVE && isSwiping) {
+                moveX = m.x
+                Log.d("Move", moveX.toString())
+                Log.d("MoveSwipe", isSwiping.toString())
+                if (startX!!.toFloat().minus(moveX!!.toFloat()) < -main.MyUser.swipe) {
+                    main.drawer_layout.openDrawer(GravityCompat.START)
+                }
+            }
+            false
+        }
     }
 
     override fun onResume() {

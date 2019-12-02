@@ -7,14 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.R
 import com.example.chatterroyale.UserData
 import com.example.chatterroyale.listItems.ChatterData
+import com.example.chatterroyale.room.Entry
+import com.example.chatterroyale.room.EntryViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.fragment_crafter.*
 import java.util.*
 
@@ -29,7 +34,7 @@ class ChatterCrafter : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        chatterViewModel = ViewModelProviders.of(this).get(ChatterViewModel::class.java)
+        chatterViewModel = ViewModelProvider(this).get(ChatterViewModel::class.java)
 
         if (chatterViewModel?.chatterPost?.value != "") {
             //Log.d("Start",chatterViewModel.chatterPost.value)
@@ -136,10 +141,9 @@ class ChatterCrafter : Fragment(){
                     1
                 )
                     userDoc.set(newUser)
-
                 }
             }
-
+        main.findNavController(R.id.nav_host_fragment).navigate(R.id.action_chatterCrafter_to_nav_chatter)
     }
 
     fun validateEntry(post:String):String{

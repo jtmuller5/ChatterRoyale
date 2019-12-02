@@ -19,6 +19,7 @@ class ChatterEntry {
     var doubleUpvotes: Int = 0
     var postChars: Int = 0                          //Count the number of characters in a post, including spaces
     var timeAlive: Long = 0
+    var finalist: Boolean = false
 
     //IMMUTABLE PROPERTIES DEFINED AT CREATION
     var sTime: Date? = null                         //Submission time
