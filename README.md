@@ -25,3 +25,17 @@ I'll admit that I'm not personally a fountain of unique ideas. Or at least I don
 
 ## Can submissions be made to a prompt after the daily competition has closed?
 Yep! The main feed will be used to present everyone with a new prompt each day but all prompts will remain active beyond the day's close. This way, all synonym charts will continue to grow and the "utility" of the app will increase over time. 
+
+## What is a Say-nonym?
+A Say-nonym is a synonym for a saying and yes, it is a made up word. In the Way 2 Say app, each submission is considered a Say-nonym of sorts, but remember that each prompt doesn't have to be a saying. The prompt could be a question or an exclamation or a regular old sentence. Whatever it is, users will be submitting other ways to say it and each submission is a Say-nonym.<br>
+Each Say-nonym will be evaluated with regards to several metrics:
+- **Applicability** - How well does this Say-nonym represent the prompt?
+- **Originality** - How original is the Say-nonym? Is it cliche or creative?
+- **Quality** - Is the Say-nonym actually a valuable contribution to the Way 2 Say thesaurus?
+
+The utility of a Say-nonym can also be judged. Utility represents how often users would actually use the alternate expression and in what situations they would use it. One utility tag can be attributed by each user to each Say-nonym.
+- Legit Utility - You would actually say this instead of the prompt
+- Only in Writing - You wouldn't say this but you might write it
+- Funny, So Yes - The submission is comical and that's why you'd use it
+- Funny, But No - The submission is comical but there's absolutely no way you'd ever say this
+- No Utility - You would never let this Say-nonym leave your lips or writing utensil
