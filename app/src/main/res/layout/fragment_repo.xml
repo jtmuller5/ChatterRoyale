@@ -27,11 +27,12 @@
 
                 <Button
                     android:id="@+id/storeTags"
-                    android:layout_width="200dp"
+                    android:layout_width="403dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/store_tags"
-                    android:textColor="@color/colorAccentBlue" />
+                    android:shadowColor="@color/colorAccentDark"
+                    android:text="@string/repo_sayings"
+                    android:textColor="@color/colorAccentDark" />
 
             </TableRow>
 
@@ -46,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/store_perks"
+                    android:text="@string/repo_questions"
                     android:textColor="@color/colorAccentDark" />
 
             </TableRow>
@@ -62,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/store_filters"
+                    android:text="@string/repo_expressions"
                     android:textColor="@color/colorAccentDark" />
 
             </TableRow>
@@ -78,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/store_sorters"
+                    android:text="@string/repo_formalities"
                     android:textColor="@color/colorAccentDark" />
 
             </TableRow>
@@ -92,10 +93,10 @@
 
                 <Button
                     android:id="@+id/storeCustomizations"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/store_customizations"
+                    android:text="@string/repo_misc"
                     android:textColor="@color/colorAccentDark" />
 
             </TableRow>

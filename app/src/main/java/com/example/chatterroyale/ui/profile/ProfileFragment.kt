@@ -7,18 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.R
 import com.example.chatterroyale.adapters.ChatterRVAdapter
 import com.example.chatterroyale.ui.chatter.ChatterFragment
-import com.example.chatterroyale.ui.chatter.ChatterViewModel
-import com.example.chatterroyale.ui.perks.ProfileViewModel
-import com.example.chatterroyale.ui.perks.SignInFragment
-import com.example.chatterroyale.ui.perks.SignInFragmentDirections
+import com.example.chatterroyale.ui.repo.ProfileViewModel
 import com.firebase.ui.auth.AuthUI
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.fragment_chatter.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 /*PURPOSE: Allow users to see logistical information about about their account

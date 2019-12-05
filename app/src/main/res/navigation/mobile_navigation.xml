@@ -11,14 +11,18 @@
         android:label="@string/menu_stats" />
 
     <fragment
-        android:id="@+id/nav_chatter"
+        android:id="@+id/nav_today"
         android:name="com.example.chatterroyale.ui.chatter.ChatterFragment"
-        android:label="@string/menu_chatter" />
+        android:label="@string/menu_today" />
 
     <fragment
-        android:id="@+id/nav_store"
-        android:name="com.example.chatterroyale.ui.perks.StoreFragment"
-        android:label="@string/menu_store" />
+        android:id="@+id/nav_repo"
+        android:name="com.example.chatterroyale.ui.repo.RepoFragment"
+        android:label="@string/menu_repo" >
+        <action
+            android:id="@+id/action_nav_repo_to_repoCategory"
+            app:destination="@id/repoCategory" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_settings"
@@ -30,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.chatterroyale.ui.home.HomeFragment"
+        android:name="com.example.chatterroyale.ui.featured.HomeFragment"
         android:label="@string/menu_home" />
     <fragment
         android:id="@+id/colorFragment"
@@ -42,12 +46,12 @@
         android:label="Crafter" >
         <action
             android:id="@+id/action_chatterCrafter_to_nav_chatter"
-            app:destination="@id/nav_chatter" />
+            app:destination="@id/nav_today" />
     </fragment>
     <action android:id="@+id/action_global_chatterCrafter" app:destination="@id/chatterCrafter" />
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.chatterroyale.ui.perks.SignInFragment"
+        android:name="com.example.chatterroyale.ui.repo.SignInFragment"
         android:label="SignInFragment" >
         <action
             android:id="@+id/action_signInFragment_to_nav_home"
@@ -66,4 +70,19 @@
             app:popUpTo="@+id/mobile_navigation"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/repoCategory"
+        android:name="com.example.chatterroyale.ui.repo.RepoCategory"
+        android:label="RepoCategory" >
+        <action
+            android:id="@+id/action_repoCategory_to_repoPrompt"
+            app:destination="@id/repoPrompt" />
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoPrompt"
+        android:name="com.example.chatterroyale.ui.repo.RepoPrompt"
+        android:label="RepoPrompt" />
 </navigation>

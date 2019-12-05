@@ -23,7 +23,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.chatter_entry_card.view.*
-import kotlinx.android.synthetic.main.fragment_chatter.*
+import kotlinx.android.synthetic.main.fragment_today.*
 import java.security.KeyStore
 import java.util.zip.Inflater
 import kotlin.math.absoluteValue
@@ -90,7 +90,7 @@ class ChatterRVAdapter(val chatterEntries:List<ChatterEntry>, main: MainActivity
                 if(success){singleDown.setColorFilter(ContextCompat.getColor(main,R.color.colorAccentDark),PorterDuff.Mode.SRC_IN)}
             }
 
-            characteristic.setOnClickListener{v: View ->
+            characteristic.setOnClickListener{_: View ->
                 main.MyUser.i = main.MyUser.cxArray.indexOf(characteristic.text) // Set index to current character...
                 main.incrementCxArray() // Then increment
 
@@ -103,10 +103,9 @@ class ChatterRVAdapter(val chatterEntries:List<ChatterEntry>, main: MainActivity
                 singleDown.setColorFilter(ContextCompat.getColor(main,R.color.colorWhite),PorterDuff.Mode.SRC_IN)
                 doubleDown.setColorFilter(ContextCompat.getColor(main,R.color.colorWhite),PorterDuff.Mode.SRC_IN)
 
-                if(char=="Valuable"){valVote = main.MyUser.valuableVotes[entryID]}
-                if(char=="Intelligent"){valVote = main.MyUser.intelligentVotes[entryID]}
-                if(char=="Funny"){valVote = main.MyUser.funnyVotes[entryID]}
-                if(char=="Original"){valVote = main.MyUser.originalVotes[entryID]}
+                if(char=="Quality"){valVote = main.MyUser.qualityVotes[entryID]}
+                if(char=="Applicability"){valVote = main.MyUser.applicableVotes[entryID]}
+                if(char=="Originality"){valVote = main.MyUser.originalVotes[entryID]}
 
                 if(valVote==1){singleUp.setColorFilter(ContextCompat.getColor(main,R.color.colorAccentDark),PorterDuff.Mode.SRC_IN)}
                 if(valVote==2){doubleUp.setColorFilter(ContextCompat.getColor(main,R.color.colorAccentDark),PorterDuff.Mode.SRC_IN)}
@@ -118,7 +117,7 @@ class ChatterRVAdapter(val chatterEntries:List<ChatterEntry>, main: MainActivity
                 var popupmenu:PopupMenu = PopupMenu(v.context,v)
                 var inflater: MenuInflater = popupmenu.menuInflater
                 inflater.inflate(R.menu.repo_menu,popupmenu.menu)
-                main.MyUser.tagList.forEach {
+                main.MyUser.utilityList.forEach {
                     popupmenu.menu.add(0, 1, 0, it)
                 }
                 popupmenu.show()
@@ -151,10 +150,9 @@ class ChatterRVAdapter(val chatterEntries:List<ChatterEntry>, main: MainActivity
         holder.singleDown.setColorFilter(ContextCompat.getColor(main,R.color.colorWhite),PorterDuff.Mode.SRC_IN)
         holder.doubleDown.setColorFilter(ContextCompat.getColor(main,R.color.colorWhite),PorterDuff.Mode.SRC_IN)
 
-        if(char=="Valuable" && main.MyUser.valuableVotes.contains(entryID)){valVote = main.MyUser.valuableVotes[entryID]}
-        if(char=="Intelligent" && main.MyUser.intelligentVotes.contains(entryID)){valVote = main.MyUser.intelligentVotes[entryID]}
-        if(char=="Funny" && main.MyUser.funnyVotes.contains(entryID)){valVote = main.MyUser.funnyVotes[entryID]}
-        if(char=="Original" && main.MyUser.originalVotes.contains(entryID)){valVote = main.MyUser.originalVotes[entryID]}
+        if(char=="Quality" && main.MyUser.qualityVotes.contains(entryID)){valVote = main.MyUser.qualityVotes[entryID]}
+        if(char=="Applicability" && main.MyUser.applicableVotes.contains(entryID)){valVote = main.MyUser.applicableVotes[entryID]}
+        if(char=="Originality" && main.MyUser.originalVotes.contains(entryID)){valVote = main.MyUser.originalVotes[entryID]}
 
         if(valVote==1){holder.singleUp.setColorFilter(ContextCompat.getColor(main,R.color.colorAccentDark),PorterDuff.Mode.SRC_IN)}
         if(valVote==2){holder.doubleUp.setColorFilter(ContextCompat.getColor(main,R.color.colorAccentDark),PorterDuff.Mode.SRC_IN)}
@@ -177,10 +175,9 @@ class ChatterRVAdapter(val chatterEntries:List<ChatterEntry>, main: MainActivity
         var char = holder.characteristic.text.toString()
         var valVote : Int? = 0
 
-        if(char=="Valuable" && main.MyUser.valuableVotes.contains(entryID)){valVote = main.MyUser.valuableVotes[entryID]}
-        if(char=="Intelligent" && main.MyUser.intelligentVotes.contains(entryID)){valVote = main.MyUser.intelligentVotes[entryID]}
-        if(char=="Funny" && main.MyUser.funnyVotes.contains(entryID)){valVote = main.MyUser.funnyVotes[entryID]}
-        if(char=="Original" && main.MyUser.originalVotes.contains(entryID)){valVote = main.MyUser.originalVotes[entryID]}
+        if(char=="Quality" && main.MyUser.qualityVotes.contains(entryID)){valVote = main.MyUser.qualityVotes[entryID]}
+        if(char=="Applicability" && main.MyUser.applicableVotes.contains(entryID)){valVote = main.MyUser.applicableVotes[entryID]}
+        if(char=="Originality" && main.MyUser.originalVotes.contains(entryID)){valVote = main.MyUser.originalVotes[entryID]}
 
         if(valVote==1){holder.singleUp.setColorFilter(ContextCompat.getColor(main,R.color.colorAccentDark),PorterDuff.Mode.SRC_IN)}
         if(valVote==2){holder.doubleUp.setColorFilter(ContextCompat.getColor(main,R.color.colorAccentDark),PorterDuff.Mode.SRC_IN)}
@@ -219,7 +216,7 @@ class ChatterRVAdapter(val chatterEntries:List<ChatterEntry>, main: MainActivity
         var direction = "Upvotes"
         var quantity = "Single"
         var voters = "upvoters"
-        var voteID = userVotes!!.document().id
+        var voteID = userVotes.document().id
         var voteQuant = num
 
         if(voteQuant == 2){
@@ -240,20 +237,18 @@ class ChatterRVAdapter(val chatterEntries:List<ChatterEntry>, main: MainActivity
             voteAdded=false
         }
 
-        else if(((char == "Valuable" && main.MyUser.valuableVotes.contains(entryID))||
-                    (char == "Intelligent" && main.MyUser.intelligentVotes.contains(entryID))||
-                    (char == "Funny" && main.MyUser.funnyVotes.contains(entryID))||
-                    (char == "Original" && main.MyUser.originalVotes.contains(entryID)))){
+        else if(((char == "Quality" && main.MyUser.qualityVotes.contains(entryID))||
+                    (char == "Applicability" && main.MyUser.applicableVotes.contains(entryID))||
+                    (char == "Originality" && main.MyUser.originalVotes.contains(entryID)))){
             Log.d("Already",char)
             Snackbar.make(v, "You already voted on this post",Snackbar.LENGTH_LONG).setAction("Action", null).show()
             voteAdded=false
         }
 
         //Check to make sure the entry ID is not blank before doing anything
-        else if(entryID != "" && ((char == "Valuable" && !main.MyUser.valuableVotes.contains(entryID))||
-                    (char == "Intelligent" && !main.MyUser.intelligentVotes.contains(entryID))||
-                    (char == "Funny" && !main.MyUser.funnyVotes.contains(entryID))||
-                    (char == "Original" && !main.MyUser.originalVotes.contains(entryID)))) {
+        else if(entryID != "" && ((char == "Quality" && !main.MyUser.qualityVotes.contains(entryID))||
+                    (char == "Applicability" && !main.MyUser.applicableVotes.contains(entryID))||
+                    (char == "Originality" && !main.MyUser.originalVotes.contains(entryID)))) {
 
                 firestoreDB.runBatch { batch ->
                     //Update the entry stats
@@ -278,10 +273,9 @@ class ChatterRVAdapter(val chatterEntries:List<ChatterEntry>, main: MainActivity
                 main.MyUser.unspentRoundEXP += EXP
             }
 
-            if (char=="Valuable") { main.MyUser.valuableVotes.put(entryID, voteQuant) }
-            else if (char=="Intelligent") { main.MyUser.intelligentVotes.put(entryID, voteQuant) }
-            else if (char=="Funny") { main.MyUser.funnyVotes.put(entryID, voteQuant) }
-            else if (char=="Original") { main.MyUser.originalVotes.put(entryID, voteQuant) }
+            if (char=="Quality") { main.MyUser.qualityVotes.put(entryID, voteQuant) }
+            else if (char=="Applicability") { main.MyUser.applicableVotes.put(entryID, voteQuant) }
+            else if (char=="Originality") { main.MyUser.originalVotes.put(entryID, voteQuant) }
 
             main.MyUser.stageVotes -= num.absoluteValue
             chatter.votingPower.text = main.MyUser.stageVotes.toString()
@@ -296,9 +290,9 @@ class ChatterRVAdapter(val chatterEntries:List<ChatterEntry>, main: MainActivity
     }
 
     fun attributeTag(tag:String,entryID: String):Boolean{
-        var tagRef = firestoreDB.collection("entries")?.document(entryID)
+        var tagRef = firestoreDB.collection("entries").document(entryID)
         tagRef.get()
-            ?.addOnSuccessListener {entry ->
+            .addOnSuccessListener {_ ->
                 tagRef.update("tags",FieldValue.arrayUnion(tag))
             }
         return true

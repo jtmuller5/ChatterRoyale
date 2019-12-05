@@ -113,6 +113,7 @@ class ChatterCrafter : Fragment(){
         var entryID = entriesRef!!.document().id
         var voteSum = 0
         var finalist = false
+        var prompt = main.MyUser.prompt
 
         //
         val entry = ChatterData(
@@ -123,7 +124,8 @@ class ChatterCrafter : Fragment(){
             main.MyUser.uid,
             entryID,
             voteSum,
-            finalist
+            finalist,
+            prompt
             )
 
         entriesRef?.document(entryID).set(entry)

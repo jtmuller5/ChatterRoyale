@@ -22,12 +22,13 @@ class WinnerRVAdapter(val winningEntries:List<ChatterEntry>) : RecyclerView.Adap
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var doubleUpVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.doubleUpVal)
+        /*var doubleUpVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.doubleUpVal)
         var singleUpVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.singleUpVal)
         var singleDownVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.singleDownVal)
         var doubleDownVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.doubleDownVal)
-        var voteSumVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.voteSumVal)
+        var voteSumVal: TextView = itemView.findViewById(com.example.chatterroyale.R.id.voteSumVal)*/
         var winnerPost: TextView = itemView.findViewById(com.example.chatterroyale.R.id.winnerPost)
+        var featuredPrompt: TextView = itemView.findViewById(com.example.chatterroyale.R.id.featuredPrompt)
 
         /*init {
             itemView.setOnTouchListener { v: View, m: MotionEvent  ->
@@ -54,12 +55,13 @@ class WinnerRVAdapter(val winningEntries:List<ChatterEntry>) : RecyclerView.Adap
         }
         holder?.submissionStage?.text = entry?.stage.toString()
         holder?.valuePoints?.text = entry?.vp.toString()*/
-        holder.doubleUpVal.text = entry.doubleUpvotes.toString()
+        /*holder.doubleUpVal.text = entry.doubleUpvotes.toString()
         holder.doubleDownVal.text = entry.doubleDownvotes.toString()
         holder.singleUpVal.text = entry.singleUpvotes.toString()
-        holder.singleDownVal.text = entry.singleDownvotes.toString()
+        holder.singleDownVal.text = entry.singleDownvotes.toString()*/
         holder.winnerPost.text = entry.entryPost
-        holder.voteSumVal.text = entry.voteSum.toString()
+        holder.featuredPrompt.text = entry.prompt
+        //holder.voteSumVal.text = entry.voteSum.toString()
     }
 
     override fun getItemCount(): Int {

@@ -7,15 +7,15 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/nav_home"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_featured" />
         <item
-            android:id="@+id/nav_chatter"
+            android:id="@+id/nav_today"
             android:icon="@drawable/nav_chatter"
-            android:title="@string/menu_chatter"/>
+            android:title="@string/menu_today"/>
         <item
-            android:id="@+id/nav_store"
+            android:id="@+id/nav_repo"
             android:icon="@drawable/nav_perks"
-            android:title="@string/menu_store" />
+            android:title="@string/menu_repo" />
         <item
             android:id="@+id/nav_stats"
             android:icon="@drawable/nav_stats"

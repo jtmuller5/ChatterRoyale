@@ -20,6 +20,7 @@ class ChatterEntry {
     var postChars: Int = 0                          //Count the number of characters in a post, including spaces
     var timeAlive: Long = 0
     var finalist: Boolean = false
+    var prompt: String = ""
 
     //IMMUTABLE PROPERTIES DEFINED AT CREATION
     var sTime: Date? = null                         //Submission time
@@ -48,6 +49,7 @@ data class ChatterData (
     var uid: String? = "",
     var entryID: String = "",
     var voteSum: Int = 0,
-    var finalist: Boolean = false
+    var finalist: Boolean = false,
+    var prompt: String? = ""
     //val sTimestamp : Timestamp
 )

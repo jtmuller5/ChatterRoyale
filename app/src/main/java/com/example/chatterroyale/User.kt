@@ -15,12 +15,12 @@ class User {
     var uid: String? = null
     var swipe: Int = 250 // Minimum swipe distance in pixels
 
-    var cxArray: ArrayList<String> = arrayListOf("Valuable","Intelligent","Funny","Original")
+    var cxArray: ArrayList<String> = arrayListOf("Quality","Applicability","Originality")
     var cxLength: Int = cxArray.size
     var i: Int = 0
     var currChar: String = cxArray.get(i)
 
-    var tagList: ArrayList<String> = arrayListOf("Philosophy","Wut","Cliche AF")
+    var utilityList: ArrayList<String> = arrayListOf("Legit Utility","Only In Writing","Funny, So Yes","Funny, But No","No Utility")
 
     //Historical stats
     var numberOfPosts: Int? = null
@@ -30,9 +30,8 @@ class User {
     var givenDownvotes: Int? = null
     var postsRemoved: Int? = null
     var postsVotedOn:ArrayList<String> = arrayListOf<String>()
-    var valuableVotes:ArrayMap<String,Int> = ArrayMap<String,Int>()
-    var intelligentVotes:ArrayMap<String,Int> = ArrayMap<String,Int>()
-    var funnyVotes:ArrayMap<String,Int> = ArrayMap<String,Int>()
+    var qualityVotes:ArrayMap<String,Int> = ArrayMap<String,Int>()
+    var applicableVotes:ArrayMap<String,Int> = ArrayMap<String,Int>()
     var originalVotes:ArrayMap<String,Int> = ArrayMap<String,Int>()
     var currPostChar:ArrayMap<String,String> = ArrayMap<String,String>() // Store the current characteristic for each vote. If not defined, it is "valuable"
 
@@ -42,6 +41,7 @@ class User {
     var unspentRoundEXP: Int = 0
     var roundEXP: Int = 0
     var stageVotes: Int = 40
+    var prompt: String? = null
 
     constructor()
 }

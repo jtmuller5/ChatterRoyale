@@ -21,15 +21,15 @@ class MainViewModel:ViewModel() {
 
     var stage: MutableLiveData<Double> = MutableLiveData()
     var round: MutableLiveData<Double> = MutableLiveData()
+    var prompt: MutableLiveData<String> = MutableLiveData()
     var user: MutableLiveData<FirebaseUser> = MutableLiveData()
     var roundEXP: MutableLiveData<Int> = MutableLiveData()
     var unspentRoundEXP: MutableLiveData<Int> = MutableLiveData()
     var EXP: MutableLiveData<Double> = MutableLiveData()
     var unspentEXP: MutableLiveData<Double> = MutableLiveData()
     var existingVotes: ArrayList<Entry> = ArrayList<Entry>()
-    var valuableVotes: MutableLiveData<ArrayMap<String, Int>> = MutableLiveData()
-    var intelligentVotes: MutableLiveData<ArrayMap<String, Int>> = MutableLiveData()
-    var funnyVotes: MutableLiveData<ArrayMap<String, Int>> = MutableLiveData()
+    var qualityVotes: MutableLiveData<ArrayMap<String, Int>> = MutableLiveData()
+    var applicableVotes: MutableLiveData<ArrayMap<String, Int>> = MutableLiveData()
     var originalVotes: MutableLiveData<ArrayMap<String, Int>> = MutableLiveData()
 
     //TODO: Use LiveData
@@ -69,6 +69,24 @@ class MainViewModel:ViewModel() {
         return round
     }
 
+    fun watchCurrentPrompt() : LiveData<String> {
+
+        //Get the current stage from the master/today doc
+        var todayRef = firestoreDB?.collection("master")?.document("today")
+        todayRef?.addSnapshotListener{snapshot,e->
+            if (e != null) {
+                Log.w(TAG, "Listen failed.", e)
+                return@addSnapshotListener
+            }
+            if (snapshot != null && snapshot.exists()) {
+                prompt.postValue(snapshot.getString("prompt"))
+            } else {
+                Log.d(TAG, "Current data: null")
+            }
+        }
+        return prompt
+    }
+
     fun watchCurrentUser() : LiveData<FirebaseUser> {
 
         val currentUser = FirebaseAuth.getInstance().currentUser
@@ -92,10 +110,9 @@ class MainViewModel:ViewModel() {
                 Log.e("Failed", e.toString())
             }
 
-        if (char == "Valuable"){currChar = valuableVotes;valuableVotes.postValue(tempVotes) }
-        if (char == "Intelligent"){currChar = intelligentVotes;intelligentVotes.postValue(tempVotes) }
-        if (char == "Funny"){currChar = funnyVotes;funnyVotes.postValue(tempVotes) }
-        if (char == "Original"){currChar = originalVotes;originalVotes.postValue(tempVotes) }
+        if (char == "Quality"){currChar = qualityVotes;qualityVotes.postValue(tempVotes) }
+        if (char == "Applicability"){currChar = applicableVotes;applicableVotes.postValue(tempVotes) }
+        if (char == "Originality"){currChar = originalVotes;originalVotes.postValue(tempVotes) }
 
         return currChar
     }

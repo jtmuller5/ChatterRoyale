@@ -1,4 +1,4 @@
-package com.example.chatterroyale.ui.home
+package com.example.chatterroyale.ui.featured
 
 import android.os.Bundle
 import android.util.Log
@@ -16,7 +16,6 @@ import com.example.chatterroyale.R
 import com.example.chatterroyale.adapters.WinnerRVAdapter
 import com.example.chatterroyale.listItems.ChatterEntry
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_chatter.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {

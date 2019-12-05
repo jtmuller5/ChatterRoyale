@@ -1,4 +1,4 @@
-package com.example.chatterroyale.ui.home
+package com.example.chatterroyale.ui.featured
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -15,7 +15,6 @@ class HomeViewModel : ViewModel() {
     //RECYCLER VIEW POPULATION
     var winningEntriesList: MutableLiveData<List<ChatterEntry>> = MutableLiveData()
 
-    //TODO: Use LiveData
     fun findWinningEntries() : LiveData<List<ChatterEntry>> {
         val list = mutableListOf<ChatterEntry>()
         firestoreDB?.collection("entries")?.whereEqualTo("winner",true)

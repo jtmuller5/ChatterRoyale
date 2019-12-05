@@ -5,12 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.chatterroyale.MainActivity
-import com.example.chatterroyale.ui.perks.StoreViewModel
+import com.example.chatterroyale.ui.repo.RepoViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
 class StatsViewModel : ViewModel() {
 
-    private val TAG = StoreViewModel::class.simpleName
+    private val TAG = RepoViewModel::class.simpleName
     private var firestoreDB: FirebaseFirestore? = FirebaseFirestore.getInstance()
 
     //Stats

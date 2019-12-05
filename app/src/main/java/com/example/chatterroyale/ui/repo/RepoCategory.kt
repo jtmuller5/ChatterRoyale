@@ -1,4 +1,4 @@
-package com.example.chatterroyale.ui.chatter
+package com.example.chatterroyale.ui.repo
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,14 +12,16 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.R
+import com.example.chatterroyale.adapters.CategoryRVAdapter
 import com.example.chatterroyale.adapters.ChatterRVAdapter
 import com.example.chatterroyale.listItems.ChatterEntry
+import com.example.chatterroyale.ui.chatter.ChatterViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_today.*
 
-class ChatterFragment : Fragment() {
+class RepoCategory : Fragment() {
 
-    private val TAG = ChatterFragment::class.simpleName
+    private val TAG = RepoCategory::class.simpleName
 
     private lateinit var chatterViewModel: ChatterViewModel
     private lateinit var mAdapter: ChatterRVAdapter
@@ -50,7 +52,7 @@ class ChatterFragment : Fragment() {
         votingPower.text = main.MyUser.stageVotes.toString()
 
         chatterViewModel.chatterEntriesList.observe(this, Observer { chatterEntriesList ->
-                chatterEntriesList?.let{
+            chatterEntriesList?.let{
                 populateRecyclerView(chatterEntriesList)
             }
         })
@@ -69,9 +71,9 @@ class ChatterFragment : Fragment() {
             } else if (m.actionMasked == MotionEvent.ACTION_MOVE && isSwiping) {
                 moveX = m.x
                 if (startX!!.toFloat().minus(moveX!!.toFloat()) < -main.MyUser.swipe) {
-                main.drawer_layout.openDrawer(GravityCompat.START)
+                    main.drawer_layout.openDrawer(GravityCompat.START)
+                }
             }
-        }
             false
         }
     }
@@ -85,7 +87,7 @@ class ChatterFragment : Fragment() {
     }
 
     fun populateRecyclerView(chatterEntriesList: List<ChatterEntry>){
-            mAdapter = ChatterRVAdapter(chatterEntriesList,main,this)
-            chatterRecyclerView.adapter = mAdapter
+        mAdapter = CategoryRVAdapter(chatterEntriesList,main,this)
+        chatterRecyclerView.adapter = mAdapter
     }
 }

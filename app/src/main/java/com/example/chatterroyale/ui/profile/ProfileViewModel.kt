@@ -1,4 +1,4 @@
-package com.example.chatterroyale.ui.perks
+package com.example.chatterroyale.ui.repo
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

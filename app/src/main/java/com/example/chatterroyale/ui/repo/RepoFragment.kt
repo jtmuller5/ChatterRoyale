@@ -1,22 +1,19 @@
-package com.example.chatterroyale.ui.perks
+package com.example.chatterroyale.ui.repo
 
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.chatterroyale.MainActivity
 import com.example.chatterroyale.R
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_settings.*
-import kotlinx.android.synthetic.main.fragment_stats.*
-import kotlinx.android.synthetic.main.fragment_store.*
-import kotlinx.android.synthetic.main.nav_header_main.*
+import kotlinx.android.synthetic.main.fragment_repo.*
 
-class StoreFragment : Fragment() {
+class RepoFragment : Fragment() {
 
     private lateinit var perksViewModel: ProfileViewModel
     private lateinit var main: MainActivity
@@ -32,7 +29,7 @@ class StoreFragment : Fragment() {
     ): View? {
         main = requireActivity() as MainActivity
         perksViewModel = ViewModelProviders.of(this).get(ProfileViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_store, container, false)
+        val root = inflater.inflate(R.layout.fragment_repo, container, false)
         return root
     }
 
@@ -58,6 +55,11 @@ class StoreFragment : Fragment() {
             }
             false
         }
+    }
+
+    fun goToCat(cat:String){
+
+        var navController = main.findNavController(R.id.nav_host_fragment).navigate(R.id.action_nav_repo_to_repoCategory)
     }
 
 }

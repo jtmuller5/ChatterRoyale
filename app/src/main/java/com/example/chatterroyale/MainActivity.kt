@@ -2,9 +2,6 @@ package com.example.chatterroyale
 
 import android.os.AsyncTask
 import android.os.Bundle
-import android.util.Log
-import android.view.GestureDetector
-import android.view.Gravity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -16,22 +13,14 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
-import android.view.MotionEvent
-import androidx.core.view.GestureDetectorCompat
-import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.ViewModelStoreOwner
 import com.example.chatterroyale.listItems.ChatterEntry
 import com.example.chatterroyale.room.Entry
 import com.example.chatterroyale.room.EntryViewModel
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.fragment_chatter.*
 
 class MainActivity : AppCompatActivity(){
 
@@ -69,7 +58,7 @@ class MainActivity : AppCompatActivity(){
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_chatter, R.id.nav_store,
+                R.id.nav_home, R.id.nav_today, R.id.nav_repo,
                 R.id.nav_stats, R.id.nav_settings
             ), drawerLayout
         )
@@ -106,23 +95,23 @@ class MainActivity : AppCompatActivity(){
             round = currentRound.toInt()
         })
 
+        mainViewModel.watchCurrentPrompt().observe(this, Observer { currentPrompt ->
+            MyUser.prompt = currentPrompt
+        })
+
         mainViewModel.watchCurrentUser().observe(this, Observer { currentUser ->
             MyUser.uid = currentUser.uid
         })
 
-        mainViewModel.getOldVotes(MyUser.uid.toString(),"Valuable").observe(this, Observer { votes ->
-            MyUser.valuableVotes = votes
+        mainViewModel.getOldVotes(MyUser.uid.toString(),"Quality").observe(this, Observer { votes ->
+            MyUser.qualityVotes = votes
         })
 
-        mainViewModel.getOldVotes(MyUser.uid.toString(),"Intelligent").observe(this, Observer { votes ->
-            MyUser.intelligentVotes = votes
+        mainViewModel.getOldVotes(MyUser.uid.toString(),"Applicability").observe(this, Observer { votes ->
+            MyUser.applicableVotes = votes
         })
 
-        mainViewModel.getOldVotes(MyUser.uid.toString(),"Funny").observe(this, Observer { votes ->
-            MyUser.funnyVotes = votes
-        })
-
-        mainViewModel.getOldVotes(MyUser.uid.toString(),"Original").observe(this, Observer { votes ->
+        mainViewModel.getOldVotes(MyUser.uid.toString(),"Originality").observe(this, Observer { votes ->
             MyUser.originalVotes = votes
         })
 

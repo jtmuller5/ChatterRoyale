@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Chatter Royale</string>
+    <string name="app_name">Way 2 Say</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -8,11 +8,14 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
+    <string name="menu_featured">Featured</string>
     <string name="menu_stats">Stats</string>
     <string name="menu_tools">Tools</string>
     <string name="menu_store">Store</string>
+    <string name="menu_repo">Repository</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_chatter">Chatter</string>
+    <string name="menu_today">Today</string>
     <string name="submission_time">Submission Time</string>
     <string name="submission_stage">Submission Stage</string>
     <string name="value_points">Value Points</string>
@@ -50,4 +53,13 @@
     <string name="store_customizations">CUSTOMIZATIONS</string>
     <string name="greeting">Greeting</string>
     <string name="inappropriate">Inappropriate</string>
+
+    <string name="repo_sayings">Sayings</string>
+    <string name="repo_questions">Questions</string>
+    <string name="repo_expressions">Expressions</string>
+    <string name="repo_formalities">Formalities</string>
+    <string name="repo_misc">Miscellaneous</string>
+    <string name="dailyPrompt">Prompt</string>
+    <string name="app_motto">Kill Cliché</string>
+    <string name="categoryTitle">Category</string>
 </resources>
